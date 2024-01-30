@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public GameObject trap;
     float counter = 0;
 
+    public Animator animator;
 
     void Start()
     {
@@ -25,7 +26,6 @@ public class Player : MonoBehaviour
     {
         float horizontal = Input.GetAxis(inputHorizontal);
         float vertical = Input.GetAxis(inputVertical);
-        transform.position += new Vector3(horizontal, vertical, 0) * Time.fixedDeltaTime * speed;
 
         counter += Time.deltaTime;
         if (Input.GetButtonDown(inputTrap) && counter > 5)
@@ -39,6 +39,20 @@ public class Player : MonoBehaviour
         // movement.Normalize(); // Ensure diagonal movement is not faster
 
         // rb.velocity = movement * speed;
+      transform.position += new Vector3(horizontal, vertical, 0) * Time.deltaTime * speed;
+
+        if(horizontal != 0 || vertical != 0)
+        {
+            animator.SetFloat("X", horizontal);
+            animator.SetFloat("Y", vertical);
+
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
+      
     }
 
 }
