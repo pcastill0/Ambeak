@@ -8,7 +8,13 @@ public class Player : MonoBehaviour
     public float speed;
     public string inputHorizontal;
     public string inputVertical;
+    public string inputTrap;
+
     private Rigidbody2D rb;
+
+    public GameObject trap;
+    float counter = 0;
+
 
     void Start()
     {
@@ -21,10 +27,18 @@ public class Player : MonoBehaviour
         float vertical = Input.GetAxis(inputVertical);
         transform.position += new Vector3(horizontal, vertical, 0) * Time.fixedDeltaTime * speed;
 
-        //Vector2 movement = new Vector2(horizontal, vertical);
-       // movement.Normalize(); // Ensure diagonal movement is not faster
+        counter += Time.deltaTime;
+        if (Input.GetButtonDown(inputTrap) && counter > 5)
+        {
+            GameObject trapp = Instantiate(trap, transform.position, transform.rotation);
+            trapp.GetComponent<Trampa>().owner = gameObject;
+            counter = 0;
+        }
 
-       // rb.velocity = movement * speed;
+        //Vector2 movement = new Vector2(horizontal, vertical);
+        // movement.Normalize(); // Ensure diagonal movement is not faster
+
+        // rb.velocity = movement * speed;
     }
 
 }
