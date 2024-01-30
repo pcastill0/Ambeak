@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public string inputVertical;
     private Rigidbody2D rb;
 
+    public Animator animator;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
