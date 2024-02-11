@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     public string inputHorizontal;
     public string inputVertical;
     public string inputTrap;
+    public float cooldownTrap1 = 5f;
+    public float cooldownTrap2 = 5f;
 
     private Rigidbody2D rb;
 
@@ -28,17 +30,13 @@ public class Player : MonoBehaviour
         float vertical = Input.GetAxis(inputVertical);
 
         counter += Time.deltaTime;
-        if (Input.GetButtonDown(inputTrap) && counter > 5)
+        if (Input.GetButtonDown(inputTrap) && counter > cooldownTrap1)
         {
             GameObject trapp = Instantiate(trap, transform.position, transform.rotation);
             trapp.GetComponent<Trampa>().owner = gameObject;
             counter = 0;
         }
 
-        //Vector2 movement = new Vector2(horizontal, vertical);
-        // movement.Normalize(); // Ensure diagonal movement is not faster
-
-        // rb.velocity = movement * speed;
       transform.position += new Vector3(horizontal, vertical, 0) * Time.deltaTime * speed;
 
         if(horizontal != 0 || vertical != 0)
@@ -55,4 +53,37 @@ public class Player : MonoBehaviour
       
     }
 
+    public void HealthUp()
+    {
+        if (gameObject.GetComponent<Hearts>().health < gameObject.GetComponent<Hearts>().numOfHearts) {
+            gameObject.GetComponent<Hearts>().health++;
+        }
+    }
+
+    public void speedUp()
+    {
+        StartCoroutine(speedUpCo());
+    }
+
+    private IEnumerator speedUpCo()
+    {
+        speed *= 1.25f;
+        yield return new WaitForSeconds(5);
+        speed /= 1.25f;
+    }
+
+    public void reduceCooldown()
+    {
+        StartCoroutine(reduceCooldownCo());
+    }
+
+    private IEnumerator reduceCooldownCo()
+    {
+        cooldownTrap1 /= 2f;
+        cooldownTrap2 /= 2f;
+        yield return new WaitForSeconds(7.5f);
+        cooldownTrap1 *= 2f;
+        cooldownTrap2 *= 2f;
+
+    }
 }

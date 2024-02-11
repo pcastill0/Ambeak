@@ -1287,7 +1287,7 @@ CompositeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
+  m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
@@ -1850,6 +1850,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 39346904}
   m_CullTransparentMesh: 1
+--- !u!1 &166660562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 166660564}
+  - component: {fileID: 166660563}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &166660563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166660562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7667b43a6bbb394f83495f8446a45b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUp: {fileID: 2053345353568730787, guid: 536357a7ee97c0748b0308efd4baaa4f, type: 3}
+--- !u!4 &166660564
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166660562}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.960613, y: 0.54740083, z: 0.014042117}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &221363668
 GameObject:
   m_ObjectHideFlags: 0
@@ -2331,6 +2376,8 @@ MonoBehaviour:
   inputHorizontal: Horizontal1
   inputVertical: Vertical1
   inputTrap: Fire1
+  cooldownTrap1: 5
+  cooldownTrap2: 5
   trap: {fileID: 6621705754943966339, guid: 0f3cb7a8174eec5498a3ddd0396abf2d, type: 3}
   animator: {fileID: 1001695387}
 --- !u!114 &1001695386
@@ -2571,6 +2618,8 @@ MonoBehaviour:
   inputHorizontal: Horizontal2
   inputVertical: Vertical2
   inputTrap: Fire2
+  cooldownTrap1: 5
+  cooldownTrap2: 5
   trap: {fileID: 6621705754943966339, guid: e53e143ad7d08574ba9e0a3076303293, type: 3}
   animator: {fileID: 1024048026}
 --- !u!95 &1024048026
