@@ -138,7 +138,7 @@ public class Player : MonoBehaviour
             animator.SetBool("isWalking", false);
         }
     }
-
+     
     public IEnumerator Stuned()
     {
         isPlayerStunned = true;
