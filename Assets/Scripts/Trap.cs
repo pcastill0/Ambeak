@@ -25,6 +25,7 @@ public class Trampa : MonoBehaviour
             if (collision.gameObject != owner)
             {
                 collision.GetComponent<Hearts>().health -= 1;
+               
                 Destroy(this.gameObject);
             }
         }
