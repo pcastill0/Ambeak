@@ -10,23 +10,21 @@ public class Stun : MonoBehaviour
     float stunDuration = 1.0f;
     float stunTimer = 0f;
     bool isStunned;
-
+    void Start()
+    {
+        isStunned = false;
+    }
     // Update is called once per frame
     void Update()
     {
-        if (isStunned)
+        while (isStunned == true)
         {
-            Debug.Log("Stun Timer: " + stunTimer);
-            Debug.Log(player.name);
-            stunTimer += 0.01f;
-            if (stunTimer >= stunDuration)
+            StartStun();
+            stunTimer += Time.deltaTime;
+            if(stunTimer >= stunDuration)
             {
                 EndStun();
             }
-        }
-        else
-        {
-            Debug.Log("Player is not stunned or player reference is null");
         }
     }
 

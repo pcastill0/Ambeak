@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public GameObject stun1;
     public GameObject stunEffect;
     public bool isPlayerStunned = false;
+    public bool isDead;
 
     float counter = 0;
     float holeCDR = 3;
@@ -38,10 +39,15 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerCol = gameObject.GetComponent<SpriteRenderer>().color;
+        isDead = false;
     }
 
     void FixedUpdate()
     {
+        if (isDead)
+        {
+            gameObject.GetComponent<Player>().enabled = false;
+        }
         //MOVIMIENTO PLAYER
         float horizontal = Input.GetAxis(inputHorizontal);
         float vertical = Input.GetAxis(inputVertical);

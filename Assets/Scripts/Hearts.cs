@@ -7,6 +7,9 @@ public class Hearts : MonoBehaviour
 {
     public int health;
     public int numOfHearts;
+    public int tipo;
+    public Player player;
+    public EnemyAI enemy;
 
     public Image[] hearts;
     public Sprite fullHeart;
@@ -14,6 +17,22 @@ public class Hearts : MonoBehaviour
 
 void Update()
     {
+        if (health <= 0 && tipo == 0)
+        {
+            player.transform.position = new Vector3(1000, 1000, 0);
+            player.enabled = false;
+            player.GetComponent<SpriteRenderer>().enabled = false;
+            player.GetComponent<BoxCollider2D>().enabled = false;
+
+        }
+        else if(health <= 0 && tipo == 1)
+        {
+            enemy.transform.position = new Vector3(1000, 1000, 0);
+            enemy.enabled = false;
+            enemy.GetComponent<SpriteRenderer>().enabled = false;
+            enemy.GetComponent<BoxCollider2D>().enabled = false;
+        }
+     
         if (health > numOfHearts){
             health = numOfHearts;
         }
