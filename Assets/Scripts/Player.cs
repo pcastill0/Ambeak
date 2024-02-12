@@ -19,10 +19,12 @@ public class Player : MonoBehaviour
     public GameObject trap2;
     public GameObject stun1;
     public GameObject stunEffect;
-    bool isPlayerStunned = false;
+    public bool isPlayerStunned = false;
+
     float counter = 0;
     float holeCDR = 3;
     float stunCDR = 5;
+
     Color playerCol;
     public float limiteXpos;
     public float limiteXneg;
@@ -122,6 +124,7 @@ public class Player : MonoBehaviour
             else
             {
                 GameObject stun = Instantiate(stun1, transform.position, Quaternion.identity);
+                stun.GetComponent<Stun>().owner = gameObject;
                 Destroy(stun, 0.3f);
             }
         }
@@ -139,21 +142,6 @@ public class Player : MonoBehaviour
         }
     }
      
-    public IEnumerator Stuned()
-    {
-        isPlayerStunned = true;
-
-        // Activa el efecto de aturdimiento
-        stunEffect.SetActive(true);
-
-        // Espera durante 2 segundos
-        yield return new WaitForSeconds(2);
-
-        // Desactiva el efecto de aturdimiento
-        stunEffect.SetActive(false);
-
-        // Desactiva el indicador de aturdimiento del jugador
-        isPlayerStunned = false;
-    }
+   
 
 }

@@ -2490,6 +2490,7 @@ MonoBehaviour:
   trap2: {fileID: 5535818256618146449, guid: f26a3b1903af77f4db77f34085ccfa5c, type: 3}
   stun1: {fileID: 3843956705368120301, guid: 325421a362da10845b262d29595e64c0, type: 3}
   stunEffect: {fileID: 648613659}
+  isPlayerStunned: 0
   limiteXpos: 10
   limiteXneg: -10
   limiteYpos: 5
@@ -2740,6 +2741,7 @@ MonoBehaviour:
   trap2: {fileID: 5535818256618146449, guid: 7875ad8ac20adc149828a4c68e110003, type: 3}
   stun1: {fileID: 3843956705368120301, guid: 325421a362da10845b262d29595e64c0, type: 3}
   stunEffect: {fileID: 1858768720}
+  isPlayerStunned: 0
   limiteXpos: 10
   limiteXneg: -10
   limiteYpos: 5
