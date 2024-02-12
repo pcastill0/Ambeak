@@ -100,11 +100,11 @@ public class Timer : MonoBehaviour
 
     private void ReiniciarTemporizador()
     {
-        // Reiniciar el temporizador
+      
         tiempoRestante = tiempoInicial;
         ActualizarContador();
 
-        // Desactivar los textos de victoria
+      
         foreach (var textoVictoria in textosVictoria)
         {
             textoVictoria.SetActive(false);

@@ -54,15 +54,11 @@ public class EnemyAI : MonoBehaviour
 
                 if (player1 != null && player2 != null)
                 {
-                    // Obtiene la dirección y distancia hacia Player1
                     Vector3 directionToPlayer1 = player1.position - transform.position;
                     float distanceToPlayer1 = directionToPlayer1.magnitude;
-
-                    // Obtiene la dirección y distancia hacia Player2
                     Vector3 directionToPlayer2 = player2.position - transform.position;
                     float distanceToPlayer2 = directionToPlayer2.magnitude;
 
-                    // Selecciona al jugador más cercano
                     targetPlayer = (distanceToPlayer1 < distanceToPlayer2) ? player1 : player2;
                 }
                 else if (player1 != null)
@@ -76,13 +72,9 @@ public class EnemyAI : MonoBehaviour
 
                 if (targetPlayer != null)
                 {
-                    // Obtiene la dirección hacia el jugador más cercano
                     Vector3 directionToTargetPlayer = targetPlayer.position - transform.position;
-
-                    // Normaliza la dirección para mantener una velocidad constante
                     directionToTargetPlayer.Normalize();
 
-                    // Mueve al enemigo hacia el jugador más cercano
                     transform.position += directionToTargetPlayer * speed * Time.deltaTime;
                 }
             }

@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     public string inputTrap;
     public string inputTrap1;
     public string inputStun;
+    public float cooldownTrap1 = 5f;
+    public float cooldownTrap2 = 5f;
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -64,7 +66,8 @@ public class Player : MonoBehaviour
             holeCDR -= Time.deltaTime;
         }
         //TRAMPA OSO
-        if (Input.GetButtonDown(inputTrap) && counter > 5)
+     
+        if (Input.GetButtonDown(inputTrap) && counter > cooldownTrap1)
         {
             GameObject trap = Instantiate(trap1, transform.position, transform.rotation);
             trap.GetComponent<Trampa>().owner = gameObject;
@@ -81,9 +84,11 @@ public class Player : MonoBehaviour
 
             gameObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, .5f);
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
+     
 
 
         }
+
         //COMPROBACION TIEMPO (GUJERO)
         if (holeCDR <= 0)
         {
@@ -150,4 +155,37 @@ public class Player : MonoBehaviour
      
    
 
+    public void HealthUp()
+    {
+        if (gameObject.GetComponent<Hearts>().health < gameObject.GetComponent<Hearts>().numOfHearts) {
+            gameObject.GetComponent<Hearts>().health++;
+        }
+    }
+
+    public void speedUp()
+    {
+        StartCoroutine(speedUpCo());
+    }
+
+    private IEnumerator speedUpCo()
+    {
+        speed *= 1.25f;
+        yield return new WaitForSeconds(5);
+        speed /= 1.25f;
+    }
+
+    public void reduceCooldown()
+    {
+        StartCoroutine(reduceCooldownCo());
+    }
+
+    private IEnumerator reduceCooldownCo()
+    {
+        cooldownTrap1 /= 2f;
+        cooldownTrap2 /= 2f;
+        yield return new WaitForSeconds(7.5f);
+        cooldownTrap1 *= 2f;
+        cooldownTrap2 *= 2f;
+
+    }
 }
