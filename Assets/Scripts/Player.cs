@@ -19,30 +19,36 @@ public class Player : MonoBehaviour
 
     public Animator animator;
 
+    public int playerIndex = 0;
+
+    private Vector2 movementInput = Vector2.zero;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
-    
-    void FixedUpdate()
+
+    public int GetPlayerIndex()
     {
-        float horizontal = Input.GetAxis(inputHorizontal);
-        float vertical = Input.GetAxis(inputVertical);
+        return playerIndex;
+    }
+
+    void Update()
+    {
+        //float horizontal = Input.GetAxis(inputHorizontal);
+        //float vertical = Input.GetAxis(inputVertical);
 
         counter += Time.deltaTime;
-        if (Input.GetButtonDown(inputTrap) && counter > cooldownTrap1)
-        {
-            GameObject trapp = Instantiate(trap, transform.position, transform.rotation);
-            trapp.GetComponent<Trampa>().owner = gameObject;
-            counter = 0;
-        }
 
-      transform.position += new Vector3(horizontal, vertical, 0) * Time.deltaTime * speed;
 
-        if(horizontal != 0 || vertical != 0)
+        //transform.position += new Vector3(horizontal, vertical, 0) * Time.deltaTime * speed;
+
+        transform.position += new Vector3(movementInput.x, movementInput.y, 0) * Time.deltaTime * speed;
+
+        if (movementInput.x != 0 || movementInput.y != 0)
         {
-            animator.SetFloat("X", horizontal);
-            animator.SetFloat("Y", vertical);
+            animator.SetFloat("X", movementInput.x);
+            animator.SetFloat("Y", movementInput.y);
 
             animator.SetBool("isWalking", true);
         }
@@ -85,5 +91,20 @@ public class Player : MonoBehaviour
         cooldownTrap1 *= 2f;
         cooldownTrap2 *= 2f;
 
+    }
+    public void trap1Pressed(bool pressed)
+    {
+        Debug.Log("hola");
+        if (pressed && counter > cooldownTrap1)
+        {
+            GameObject trapp = Instantiate(trap, transform.position, transform.rotation);
+            trapp.GetComponent<Trampa>().owner = gameObject;
+            counter = 0;
+        }
+    }
+
+    public void SetInputVector(Vector2 direction)
+    {
+        movementInput = direction;
     }
 }

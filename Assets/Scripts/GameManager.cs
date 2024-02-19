@@ -6,7 +6,9 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 public class GameManager : MonoBehaviour
 {
     float counter = 0;
-    public GameObject powerUp;
+    public GameObject powerUp1;
+    public GameObject powerUp2;
+    public GameObject powerUp3;
 
     // Start is called before the first frame update
     void Start()
@@ -20,34 +22,25 @@ public class GameManager : MonoBehaviour
         counter += Time.deltaTime;
         if (counter > 3)
         {
+            GameObject power;
+            int rand = Random.Range(0, 3);
             counter = 0;
-            GameObject power = Instantiate(powerUp, transform.position, transform.rotation);
-            power.transform.position = new Vector2(Random.Range(-9, 9), Random.Range(-4, 4));
-            Debug.Log(power.GetComponent<PowerUps>().type);
-            switch (power.GetComponent<PowerUps>().type)
-            {
+            switch (rand) { 
+                case 0:
+                    power = Instantiate(powerUp1, transform.position, transform.rotation);
+                    power.transform.position = new Vector2(Random.Range(-9, 9), Random.Range(-4, 4));
+                    break;
                 case 1:
-                    Debug.Log("11");
-                    power.GetComponent<SpriteRenderer>().color = new Color(219f, 0f, 0f, 255f);
-                    break;
-
+                    power = Instantiate(powerUp2, transform.position, transform.rotation);
+                    power.transform.position = new Vector2(Random.Range(-9, 9), Random.Range(-4, 4));
+                    break; 
                 case 2:
-                    Debug.Log("22");
-                    break;
-
-                case 3:
-                    Debug.Log("33");
-                    power.GetComponent<SpriteRenderer>().color = new Color(9f, 255f, 82f, 255f);
-                    break;
-
-                case 4:
-                    Debug.Log("44");
-                    power.GetComponent<SpriteRenderer>().color = new Color(9f, 255f, 251f, 255f);
-                    break;
-                default:
-                    Debug.Log("roto");
+                    power = Instantiate(powerUp3, transform.position, transform.rotation);
+                    power.transform.position = new Vector2(Random.Range(-9, 9), Random.Range(-4, 4));
                     break;
             }
+            
+            
         }
     }
 }

@@ -9,7 +9,7 @@ public class PowerUps : MonoBehaviour
     public int type;
     void Awake()
     {
-        type = Random.Range(1, 5);
+      
     }
 
     // Update is called once per frame

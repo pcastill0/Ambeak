@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3135033960479861983}
   - component: {fileID: 4354916811543872932}
   m_Layer: 0
-  m_Name: PowerUp
+  m_Name: PowerUp 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: df0ffc01956ac7f4c9e358e08420c583, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.17174888, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -133,4 +133,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de06a3f3e2c9aac4085d9577bd0e6044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  type: 2
