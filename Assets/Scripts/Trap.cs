@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Trampa : MonoBehaviour
 {
-
+    public Animator animator;
     public GameObject owner;
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,9 @@ public class Trampa : MonoBehaviour
             if (collision.gameObject != owner)
             {
                 collision.GetComponent<Hearts>().health -= 1;
-               
+
+                animator.SetBool("exploded", true);
+                
                 Destroy(this.gameObject);
             }
         }
