@@ -9,29 +9,19 @@ public class PlayerInputHandler : MonoBehaviour
 {
     private PlayerInput playerInput;
     private Player player;
-    private Mover mover;
     
     private void Awake()
     {
         Debug.Log("perro");
         playerInput = GetComponent<PlayerInput>();
-        var players = FindObjectsOfType<Player>();
-        var index = playerInput.playerIndex;
-        player = players.FirstOrDefault(m => m.GetPlayerIndex() == index);
+        Player[] players = FindObjectsOfType<Player>();
+        int index = playerInput.playerIndex;
+        player = players.FirstOrDefault(m => m.playerIndex == index);
     }
-    /*
-    private void Awake()
-    {
-        Debug.Log("perro");
-        playerInput = GetComponent<PlayerInput>();
-        var index = playerInput.playerIndex;
-        var movers = FindObjectsOfType<Mover>();
-        mover = movers.FirstOrDefault(m => m.GetPlayerIndex() == index);
-    }*/
+
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("perroo");
     }
 
     // Update is called once per frame
@@ -40,17 +30,28 @@ public class PlayerInputHandler : MonoBehaviour
         
     }
 
-    public void OnTrap(CallbackContext context)
+    public void OnTrap1(CallbackContext context)
     {
-        Debug.Log("perrooo");
-        
         if (player != null)
         {
             player.trap1Pressed(context.action.triggered);
         }
-            /*
-        if (mover != null)
-            mover.SetInputVector(context.ReadValue<Vector2>());*/
+    }
+
+    public void OnTrap2(CallbackContext context)
+    {
+        if (player != null)
+        {
+            player.trap2Pressed(context.action.triggered);
+        }
+    }
+
+    public void OnStun(CallbackContext context)
+    {
+        if (player != null)
+        {
+            player.stunPressed(context.action.triggered);
+        }
     }
 
     public void OnMove(CallbackContext context)

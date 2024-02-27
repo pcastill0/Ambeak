@@ -9,7 +9,6 @@ public class PowerUps : MonoBehaviour
     public int type;
     void Awake()
     {
-      
     }
 
     // Update is called once per frame
@@ -26,7 +25,7 @@ public class PowerUps : MonoBehaviour
             {
                 case 1:
                     collision.GetComponent<Player>().HealthUp();
-                break;
+                    break;
 
                 case 2:
                     collision.GetComponent<Player>().speedUp();
