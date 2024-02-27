@@ -93,7 +93,7 @@ public class EnemyAI : MonoBehaviour
                     else if (number == 1)
                     {
                         GameObject trap = Instantiate(trap2, transform.position, Quaternion.identity);
-                        trap.GetComponent<Trampa>().owner = gameObject;
+                        trap.GetComponent<HoleTrap>().owner = gameObject;
                         contador = 0;
                         gameObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, .5f);
                         gameObject.GetComponent<BoxCollider2D>().enabled = false;
@@ -108,7 +108,7 @@ public class EnemyAI : MonoBehaviour
                 gameObject.GetComponent<SpriteRenderer>().color = playerCol;
                 holeCDR = 3;
                 GameObject trap3 = Instantiate(trap2, transform.position, Quaternion.identity);
-                trap3.GetComponent<Trampa>().owner = gameObject;
+                trap3.GetComponent<HoleTrap>().owner = gameObject;
                 hole = false;
                 Destroy(trap3, 2);
             }

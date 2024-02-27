@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
         {
             holeCDR = 3;
             GameObject trap = Instantiate(trap2, transform.position, transform.rotation);
-            trap.GetComponent<Trampa>().owner = gameObject;
+            trap.GetComponent<HoleTrap>().owner = gameObject;
             counter = 0;
 
             gameObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, .5f);
@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().color = playerCol;
             holeCDR = 3;
             GameObject trap3 = Instantiate(trap2, transform.position, transform.rotation);
-            trap3.GetComponent<Trampa>().owner = gameObject;
+            trap3.GetComponent<HoleTrap>().owner = gameObject;
             Destroy(trap3, 2);
         }
 

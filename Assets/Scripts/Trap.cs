@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Trampa : MonoBehaviour
 {
-    public Animator animator;
+    public Animator humo;
     public GameObject owner;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -25,10 +26,15 @@ public class Trampa : MonoBehaviour
             if (collision.gameObject != owner)
             {
                 collision.GetComponent<Hearts>().health -= 1;
-
-                animator.SetBool("exploded", true);
+                humo.SetBool("exploded", true);
+                Animator a = Instantiate(humo, transform.position, Quaternion.identity);
                 
+               
+                Destroy(humo, 1.64f);
+                Destroy(a, 1.64f);
                 Destroy(this.gameObject);
+
+
             }
         }
     }
