@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: ccc2acc9be9ffb5418912b0973666497
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/2PlayersToni.unity
     guid: 9d97d198f0b408045886a892b0572450
+  - enabled: 1
+    path: Assets/Scenes/Toni2.unity
+    guid: bb5a1e1d9d0ce474f85fe7a4a915ccdf
   m_configObjects: {}

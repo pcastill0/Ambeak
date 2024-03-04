@@ -30,7 +30,7 @@ public class Trampa : MonoBehaviour
                 Animator a = Instantiate(humo, transform.position, Quaternion.identity);
                 
                
-                Destroy(humo, 1.64f);
+               
                 Destroy(a, 1.64f);
                 Destroy(this.gameObject);
 
