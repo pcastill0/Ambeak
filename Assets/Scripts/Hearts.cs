@@ -9,7 +9,7 @@ public class Hearts : MonoBehaviour
     public int numOfHearts;
     public int tipo;
     public Player player;
-    public EnemyAI enemy;
+    public IAEnemigo enemy;
 
     public Image[] hearts;
     public Sprite fullHeart;

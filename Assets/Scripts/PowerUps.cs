@@ -7,6 +7,8 @@ public class PowerUps : MonoBehaviour
 {
     // Start is called before the first frame update
     public int type;
+  
+  
     void Awake()
     {
 
@@ -22,27 +24,56 @@ public class PowerUps : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            switch (type)
+            if (collision.GetComponent<Player>() != null)
             {
-                case 1:
-                    collision.GetComponent<Player>().HealthUp();
-                    break;
+                switch (type)
+                {
+                    case 1:
+                        collision.GetComponent<Player>().HealthUp();
+                        break;
 
-                case 2:
-                    collision.GetComponent<Player>().speedUp();
-                    break;
+                    case 2:
+                        collision.GetComponent<Player>().speedUp();
+                        break;
 
-                case 3:
-                    collision.GetComponent<Player>().reduceCooldown();
-                    break;
+                    case 3:
+                        collision.GetComponent<Player>().reduceCooldown();
+                        break;
 
-                case 4:
-                    break;
-                default:
-                    Debug.Log("roto");
-                    break;
+                    case 4:
+                        break;
+                    default:
+                        Debug.Log("roto");
+                        break;
+                }
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
+            else{
+             
+                switch (type)
+                {
+                    case 1:
+                        collision.GetComponent<IAEnemigo>().HealthUp();
+                        break;
+
+                    case 2:
+                        collision.GetComponent<IAEnemigo>().speedUp();
+                        break;
+
+                    case 3:
+                        collision.GetComponent<IAEnemigo>().reduceCooldown();
+                        break;
+
+                    case 4:
+                        break;
+                    default:
+                        Debug.Log("roto");
+                        break;
+                }
+                Destroy(gameObject);
+
+
+            }
         }
     }
 

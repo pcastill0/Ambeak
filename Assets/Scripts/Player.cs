@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public string inputStun;
     public float cooldownTrap1 = 5f;
     public float cooldownTrap2 = 5f;
+    public int type;
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;

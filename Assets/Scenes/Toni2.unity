@@ -2780,6 +2780,7 @@ MonoBehaviour:
   inputStun: inputStun1
   cooldownTrap1: 5
   cooldownTrap2: 5
+  type: 1
   trap1: {fileID: 6621705754943966339, guid: 0f3cb7a8174eec5498a3ddd0396abf2d, type: 3}
   trap2: {fileID: 5535818256618146449, guid: f26a3b1903af77f4db77f34085ccfa5c, type: 3}
   stun1: {fileID: 3843956705368120301, guid: 325421a362da10845b262d29595e64c0, type: 3}
@@ -3040,6 +3041,7 @@ MonoBehaviour:
   inputStun: inputStun
   cooldownTrap1: 5
   cooldownTrap2: 5
+  type: 1
   trap1: {fileID: 6621705754943966339, guid: e53e143ad7d08574ba9e0a3076303293, type: 3}
   trap2: {fileID: 5535818256618146449, guid: 7875ad8ac20adc149828a4c68e110003, type: 3}
   stun1: {fileID: 3843956705368120301, guid: 325421a362da10845b262d29595e64c0, type: 3}
@@ -14976,6 +14978,7 @@ GameObject:
   - component: {fileID: 1639793483}
   - component: {fileID: 1639793482}
   - component: {fileID: 1639793481}
+  - component: {fileID: 1639793484}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -15057,6 +15060,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1639793484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639793480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a97707c82d10d744b4c953f38206e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1684709127
 GameObject:
   m_ObjectHideFlags: 0
@@ -16053,7 +16068,7 @@ MonoBehaviour:
   numOfHearts: 3
   tipo: 1
   player: {fileID: 0}
-  enemy: {fileID: 1965668769}
+  enemy: {fileID: 0}
   hearts:
   - {fileID: 316083477}
   - {fileID: 174281515}
@@ -16078,7 +16093,7 @@ GameObject:
   - component: {fileID: 1995178605}
   m_Layer: 0
   m_Name: iaprueba
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16093,7 +16108,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.49999997
-  m_Speed: 5
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -16119,6 +16134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objetivo: {fileID: 1001695382}
   objetivo2: {fileID: 1024048023}
+  type: 2
 --- !u!212 &1995178600
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16284,12 +16300,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   numOfHearts: 3
-  tipo: 0
+  tipo: 1
   player: {fileID: 0}
-  enemy: {fileID: 0}
-  hearts: []
-  fullHeart: {fileID: 0}
-  emptyHeart: {fileID: 0}
+  enemy: {fileID: 1995178599}
+  hearts:
+  - {fileID: 316083477}
+  - {fileID: 174281515}
+  - {fileID: 1860191558}
+  fullHeart: {fileID: 21300000, guid: 2b588f759229ade4d92f1bf5620fe66f, type: 3}
+  emptyHeart: {fileID: 21300000, guid: 12eb68f2163b055479d112d6b106519e, type: 3}
 --- !u!1 &2097111812
 GameObject:
   m_ObjectHideFlags: 0

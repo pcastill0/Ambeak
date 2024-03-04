@@ -5,6 +5,10 @@ using UnityEngine.AI;
 
 public class IAEnemigo : MonoBehaviour
 {
+    //ARREGLAR
+    float cooldownTrap1 = 0;
+    float cooldownTrap2 = 0;
+    float speed = 4;
 
     [SerializeField] private Transform objetivo;
     [SerializeField] private Transform objetivo2;
@@ -13,7 +17,7 @@ public class IAEnemigo : MonoBehaviour
 
     float counter;
     int result;
-    int type;
+    public int type;
 
     private void Start()
     {
@@ -55,17 +59,38 @@ public class IAEnemigo : MonoBehaviour
 
 
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void HealthUp()
     {
-        if (collision.gameObject.CompareTag("Trap"))
+        if (gameObject.GetComponent<Hearts>().health < gameObject.GetComponent<Hearts>().numOfHearts)
         {
-
-
-            collision.GetComponent<IAHearts>().health -= 1;
-
-            Destroy(this.gameObject);
-
+            gameObject.GetComponent<Hearts>().health++;
         }
+    }
+
+    public void speedUp()
+    {
+        StartCoroutine(speedUpCo());
+    }
+
+    private IEnumerator speedUpCo()
+    {
+        speed *= 1.25f;
+        yield return new WaitForSeconds(5);
+        speed /= 1.25f;
+    }
+
+    public void reduceCooldown()
+    {
+        StartCoroutine(reduceCooldownCo());
+    }
+
+    private IEnumerator reduceCooldownCo()
+    {
+        cooldownTrap1 /= 2f;
+        cooldownTrap2 /= 2f;
+        yield return new WaitForSeconds(7.5f);
+        cooldownTrap1 *= 2f;
+        cooldownTrap2 *= 2f;
+
     }
 }
