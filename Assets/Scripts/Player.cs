@@ -24,12 +24,17 @@ public class Player : MonoBehaviour
     float countertrap2 = 0;
 
     float holeCooldown = 3;
-    float stunCooldown = 5;
 
-    public float limiteXpos = 10;
-    public float limiteXneg = -10;
-    public float limiteYpos = 5;
-    public float limiteYneg = -5;
+    float stunCooldown = 1;
+    float stunCounter= 0;
+
+    float stunnedCooldown = 3;
+    float stunnedCounter = 0;
+
+    private float limiteXpos = 10;
+    private float limiteXneg = -10;
+    private float limiteYpos = 5;
+    private float limiteYneg = -5;
 
 
     public Animator animator;
@@ -55,6 +60,11 @@ public class Player : MonoBehaviour
         }
 
         //MOVIMIENTO PLAYER
+        if(isPlayerStunned && stunnedCounter > stunnedCooldown)
+        {
+            isPlayerStunned = false;
+            stunnedCounter = 0;
+        }
         if (!isPlayerStunned)
         {
             transform.position += new Vector3(movementInput.x, movementInput.y, 0) * Time.deltaTime * speed;
@@ -63,7 +73,11 @@ public class Player : MonoBehaviour
         //CONTADORES
         countertrap1 += Time.deltaTime;
         countertrap2 += Time.deltaTime;
-        stunCooldown -= Time.deltaTime;
+        stunCounter += Time.deltaTime;
+
+        if(isPlayerStunned){
+            stunnedCounter += Time.deltaTime;
+        }
 
         //CONTADOR CDR
         if (gameObject.GetComponent<BoxCollider2D>().enabled == false)
@@ -178,9 +192,9 @@ public class Player : MonoBehaviour
     public void stunPressed(bool pressed)
     {
         Debug.Log("hola3");
-        if (pressed && stunCooldown <= 0)
+        if (pressed && stunCounter > stunCooldown)
         {
-            stunCooldown = 5;
+            stunCounter = 0;
             if (movementInput.magnitude > 0.01f)
             {
                 float angle = Mathf.Atan2(movementInput.x, - (movementInput.y)) * Mathf.Rad2Deg;
