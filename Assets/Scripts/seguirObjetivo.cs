@@ -5,9 +5,9 @@ using UnityEngine.AI;
 
 public class IAEnemigo : MonoBehaviour
 {
-    //ARREGLAR
     float cooldownTrap1 = 5;
     float cooldownTrap2 = 3;
+    float cooldownTrap3 = 4;
     float speed = 4;
 
     [SerializeField] private Transform objetivo;
@@ -16,8 +16,12 @@ public class IAEnemigo : MonoBehaviour
     private NavMeshAgent navMeshAgent;
 
     public GameObject trap1;
+    public GameObject trap2;
+    public GameObject trap3;
+    Color playerCol;
     public GameObject empujeTrap;
 
+    float holeCDR = 3;
     float counter;
     int result;
     public int type;
@@ -32,6 +36,8 @@ public class IAEnemigo : MonoBehaviour
         counter = 0;
         result = Random.Range(0, 2); ;
         agent = GetComponent<NavMeshAgent>();
+        playerCol = gameObject.GetComponent<SpriteRenderer>().color;
+        holeCDR = 3;
 
     }
 
@@ -41,19 +47,29 @@ public class IAEnemigo : MonoBehaviour
 
         //MOVIMIENTO
         //ELEGIR PLAYER 
-        counter -= Time.deltaTime;
-        if (counter <= 0)
+        if ((navMeshAgent.SetDestination(objetivo.position) != null) && (navMeshAgent.SetDestination(objetivo2.position) != null))
         {
-            result = Random.Range(0, 2);
-            if (result == 0)
+            counter -= Time.deltaTime;
+            if (counter <= 0)
             {
-                type = 1;
+                result = Random.Range(0, 2);
+                if (result == 0)
+                {
+                    type = 1;
+                }
+                else if (result == 1)
+                {
+                    type = 2;
+                }
+                counter = 5;
             }
-            else if (result == 1)
-            {
-                type = 2;
-            }
-            counter = 5;
+        }
+        if(navMeshAgent.SetDestination(objetivo.position) == null)
+        {
+            type = 2;
+        }else if(navMeshAgent.SetDestination(objetivo2.position) == null)
+        {
+            type = 1;
         }
         //DIRECCIÓN DEL PLAYER
         if (type == 1)
@@ -67,23 +83,53 @@ public class IAEnemigo : MonoBehaviour
 
 
 
-        //TRAMPA MINA
+        
         cooldownTrap1 -= Time.deltaTime;
         cooldownTrap2 -= Time.deltaTime;
+        cooldownTrap3 -= Time.deltaTime;
 
-         num = Random.Range(0, 2);
+         num = Random.Range(0, 3);
 
         if (num == 0 && cooldownTrap1 <= 0)
         {
+            //TRAMPA MINA
             GameObject mina = Instantiate(trap1, transform.position, transform.rotation);
             mina.GetComponent<Trampa>().owner = gameObject;
             cooldownTrap1 = 5;
         }
         if(num == 1 && cooldownTrap2 <= 0)
         {
+            //TRAMPA EMPUJE
             GameObject empuje = Instantiate(empujeTrap, transform.position, transform.rotation);
             empuje.GetComponent<Mina>().owner = gameObject;
             cooldownTrap2 = 5;
+        }
+
+            //CDR EMPUJE
+        if (gameObject.GetComponent<BoxCollider2D>().enabled == false)
+        {
+            holeCDR -= Time.deltaTime;
+        }
+
+        if (num == 2 && cooldownTrap3 <= 0)
+        {
+            //TRAMPA EMPUJE
+            GameObject trap = Instantiate(trap2, transform.position, transform.rotation);
+            trap.GetComponent<HoleTrap>().owner = gameObject;
+            cooldownTrap3 = 5;
+
+
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, .5f);
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        }
+        if (holeCDR <= 0)
+        {
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            gameObject.GetComponent<SpriteRenderer>().color = playerCol;
+            holeCDR = 3;
+            GameObject trap3 = Instantiate(trap2, transform.position, transform.rotation);
+            trap3.GetComponent<HoleTrap>().owner = gameObject;
+            Destroy(trap3, 2);
         }
 
 

@@ -16240,6 +16240,8 @@ MonoBehaviour:
   objetivo: {fileID: 1001695382}
   objetivo2: {fileID: 1024048023}
   trap1: {fileID: 6621705754943966339, guid: c81fd4a4821b18f4092419026c12595b, type: 3}
+  trap2: {fileID: 5535818256618146449, guid: ad2d0ffcd7408bd42a9d3e99052b97a0, type: 3}
+  trap3: {fileID: 5535818256618146449, guid: ad2d0ffcd7408bd42a9d3e99052b97a0, type: 3}
   empujeTrap: {fileID: 8233140248677389211, guid: e84032530ed548e4eb808024a540d086, type: 3}
   type: 2
 --- !u!212 &1995178600
