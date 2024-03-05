@@ -11,8 +11,10 @@ public class Player : MonoBehaviour
     public string inputTrap;
     public string inputTrap1;
     public string inputStun;
+    public string inputEmpuje;
     public float cooldownTrap1 = 5f;
     public float cooldownTrap2 = 5f;
+    public float cooldownEmpuje = 5f;
     public int type;
 
     private Rigidbody2D rb;
@@ -21,6 +23,7 @@ public class Player : MonoBehaviour
     public GameObject trap1;
     public GameObject trap2;
     public GameObject stun1;
+    public GameObject empujeTrap;
     public GameObject stunEffect;
     public bool isPlayerStunned = false;
     public bool isDead;
@@ -140,6 +143,17 @@ public class Player : MonoBehaviour
                 Destroy(stun, 0.3f);
             }
         }
+        //TRAMPA EMPUJE
+
+        cooldownEmpuje -= Time.deltaTime;
+
+        if (Input.GetButtonDown(inputEmpuje) && cooldownEmpuje <= 0)
+        {
+            GameObject empuje = Instantiate(empujeTrap, transform.position, transform.rotation);
+            empuje.GetComponent<Mina>().owner = gameObject;
+            cooldownEmpuje = 5;
+        }
+
         //ANIMACIONES
         if (horizontal != 0 || vertical != 0)
         {

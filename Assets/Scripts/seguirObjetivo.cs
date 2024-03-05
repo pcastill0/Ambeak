@@ -6,8 +6,8 @@ using UnityEngine.AI;
 public class IAEnemigo : MonoBehaviour
 {
     //ARREGLAR
-    float cooldownTrap1 = 0;
-    float cooldownTrap2 = 0;
+    float cooldownTrap1 = 5;
+    float cooldownTrap2 = 3;
     float speed = 4;
 
     [SerializeField] private Transform objetivo;
@@ -18,6 +18,7 @@ public class IAEnemigo : MonoBehaviour
     float counter;
     int result;
     public int type;
+    NavMeshAgent agent;
 
     private void Start()
     {
@@ -26,13 +27,18 @@ public class IAEnemigo : MonoBehaviour
         navMeshAgent.updateUpAxis = false;
         counter = 0;
         result = Random.Range(0, 2); ;
-        
+        agent = GetComponent<NavMeshAgent>();
+
     }
 
     private void Update()
     {
+
+
+        //MOVIMIENTO
+        //ELEGIR PLAYER 
         counter -= Time.deltaTime;
-        if(counter <= 0)
+        if (counter <= 0)
         {
             result = Random.Range(0, 2);
             if (result == 0)
@@ -45,9 +51,7 @@ public class IAEnemigo : MonoBehaviour
             }
             counter = 5;
         }
-
-
-        
+        //DIRECCIÓN DEL PLAYER
         if (type == 1)
         {
             navMeshAgent.SetDestination(objetivo.position);
@@ -56,6 +60,10 @@ public class IAEnemigo : MonoBehaviour
         {
             navMeshAgent.SetDestination(objetivo2.position);
         }
+
+
+
+
 
 
     }
@@ -74,11 +82,11 @@ public class IAEnemigo : MonoBehaviour
 
     private IEnumerator speedUpCo()
     {
-        speed *= 1.25f;
-        yield return new WaitForSeconds(5);
-        speed /= 1.25f;
-    }
 
+        agent.speed *= 1.25f;
+        yield return new WaitForSeconds(5);
+        agent.speed /= 1.25f;
+    }
     public void reduceCooldown()
     {
         StartCoroutine(reduceCooldownCo());
@@ -93,4 +101,5 @@ public class IAEnemigo : MonoBehaviour
         cooldownTrap2 *= 2f;
 
     }
+    
 }
