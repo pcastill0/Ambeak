@@ -15,10 +15,14 @@ public class IAEnemigo : MonoBehaviour
 
     private NavMeshAgent navMeshAgent;
 
+    public GameObject trap1;
+    public GameObject empujeTrap;
+
     float counter;
     int result;
     public int type;
     NavMeshAgent agent;
+    int num;
 
     private void Start()
     {
@@ -62,6 +66,25 @@ public class IAEnemigo : MonoBehaviour
         }
 
 
+
+        //TRAMPA MINA
+        cooldownTrap1 -= Time.deltaTime;
+        cooldownTrap2 -= Time.deltaTime;
+
+         num = Random.Range(0, 2);
+
+        if (num == 0 && cooldownTrap1 <= 0)
+        {
+            GameObject mina = Instantiate(trap1, transform.position, transform.rotation);
+            mina.GetComponent<Trampa>().owner = gameObject;
+            cooldownTrap1 = 5;
+        }
+        if(num == 1 && cooldownTrap2 <= 0)
+        {
+            GameObject empuje = Instantiate(empujeTrap, transform.position, transform.rotation);
+            empuje.GetComponent<Mina>().owner = gameObject;
+            cooldownTrap2 = 5;
+        }
 
 
 
