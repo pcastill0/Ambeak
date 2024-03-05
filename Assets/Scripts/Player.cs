@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class Player : MonoBehaviour
 {
@@ -65,6 +66,7 @@ public class Player : MonoBehaviour
             isPlayerStunned = false;
             stunnedCounter = 0;
         }
+
         if (!isPlayerStunned)
         {
             transform.position += new Vector3(movementInput.x, movementInput.y, 0) * Time.deltaTime * speed;
@@ -85,7 +87,6 @@ public class Player : MonoBehaviour
             holeCooldown -= Time.deltaTime;
         }
 
-
         //COMPROBACION TIEMPO (GUJERO)
         if (holeCooldown <= 0)
         {
@@ -93,7 +94,7 @@ public class Player : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().color = playerCol;
             holeCooldown = 3;
             GameObject trap3 = Instantiate(trap2, transform.position, transform.rotation);
-            trap3.GetComponent<Trampa>().owner = gameObject;
+            trap3.GetComponent<HoleTrap>().owner = gameObject;
             Destroy(trap3, 2);
         }
 
@@ -127,6 +128,7 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("isWalking", false);
         }
+
     }
    
 
@@ -180,9 +182,10 @@ public class Player : MonoBehaviour
         if (pressed && countertrap2 > 5)
         {
             holeCooldown = 3;
-            GameObject trap = Instantiate(trap2, transform.position, transform.rotation);
-            trap.GetComponent<Trampa>().owner = gameObject;
             countertrap2 = 0;
+
+            GameObject trap = Instantiate(trap2, transform.position, transform.rotation);
+            trap.GetComponent<HoleTrap>().owner = gameObject;
 
             gameObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, .5f);
             gameObject.GetComponent<BoxCollider2D>().enabled = false;

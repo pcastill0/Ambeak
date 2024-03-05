@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2402921272840361522}
   - component: {fileID: 2693138449840836777}
   - component: {fileID: 494866077001850290}
+  - component: {fileID: 4772371036788540944}
   m_Layer: 0
   m_Name: Mine2Prefab
   m_TagString: Trap
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6621705754943966339}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.51386, y: 0.51386, z: 0.51386}
+  m_LocalScale: {x: 0.2027692, y: 0.2027692, z: 0.2027692}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,9 +75,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 6126a6bae36601041b7f5f7e67b98f61, type: 3}
-  m_Color: {r: 0.5226415, g: 0.54884946, b: 1, a: 1}
+  m_SortingOrder: 4
+  m_Sprite: {fileID: 21300000, guid: 3a4d0c7324b01a34d806befc3bb43575, type: 3}
+  m_Color: {r: 0.27781895, g: 0.23335704, b: 0.8679245, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -133,4 +134,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f17c834de535814fbf85fece0ed17c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  humo: {fileID: -8936530662301674229, guid: 7e4dca143db651a46a37c7a3ca4eac9e, type: 3}
   owner: {fileID: 0}
+--- !u!95 &4772371036788540944
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6621705754943966339}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 131ad27cd57ed824f86048d4765e1421, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
