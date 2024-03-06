@@ -47,29 +47,20 @@ public class IAEnemigo : MonoBehaviour
 
         //MOVIMIENTO
         //ELEGIR PLAYER 
-        if ((navMeshAgent.SetDestination(objetivo.position) != null) && (navMeshAgent.SetDestination(objetivo2.position) != null))
-        {
+      
             counter -= Time.deltaTime;
-            if (counter <= 0)
+        if (counter <= 0)
+        {
+            result = Random.Range(0, 2);
+            if (result == 0)
             {
-                result = Random.Range(0, 2);
-                if (result == 0)
-                {
-                    type = 1;
-                }
-                else if (result == 1)
-                {
-                    type = 2;
-                }
-                counter = 5;
+                type = 1;
             }
-        }
-        if(navMeshAgent.SetDestination(objetivo.position) == null)
-        {
-            type = 2;
-        }else if(navMeshAgent.SetDestination(objetivo2.position) == null)
-        {
-            type = 1;
+            else if (result == 1)
+            {
+                type = 2;
+            }
+            counter = 5;
         }
         //DIRECCIÓN DEL PLAYER
         if (type == 1)
