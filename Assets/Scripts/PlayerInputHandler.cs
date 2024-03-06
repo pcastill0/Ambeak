@@ -46,6 +46,14 @@ public class PlayerInputHandler : MonoBehaviour
         }
     }
 
+    public void OnTrap3(CallbackContext context)
+    {
+        if (player != null)
+        {
+            player.trap3Pressed(context.action.triggered);
+        }
+    }
+
     public void OnStun(CallbackContext context)
     {
         if (player != null)

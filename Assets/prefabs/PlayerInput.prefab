@@ -186,6 +186,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 98c64579-dda1-464a-ae03-30652de20210
     m_ActionName: P2/Stun[/DualSenseGamepadHID/buttonSouth,/Keyboard/rightCtrl]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5446022826066967617}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: OnTrap3
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0ad1b9c9-7034-4290-8486-bcae69bb9249
+    m_ActionName: P1/Trap3[/DualSenseGamepadHID/buttonEast,/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5446022826066967617}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: OnTrap3
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 715c25a0-2a20-42e7-bf14-e7fbac86dc51
+    m_ActionName: P2/Trap3[/DualSenseGamepadHID/buttonEast,/Keyboard/backslash]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: P1

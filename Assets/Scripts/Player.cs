@@ -7,12 +7,14 @@ public class Player : MonoBehaviour
 {
 
     public float speed;
+    public int type;
 
     //public string inputStun;
 
     public GameObject trap1;
     public GameObject trap2;
     public GameObject stun1;
+    public GameObject empujeTrap;
     public GameObject stunEffect;
 
     public bool isPlayerStunned = false;
@@ -20,9 +22,11 @@ public class Player : MonoBehaviour
 
     public float cooldownTrap1 = 5f;
     public float cooldownTrap2 = 5f;
+    public float cooldownTrap3 = 5f;
 
     float countertrap1 = 0;
     float countertrap2 = 0;
+    float countertrap3 = 0;
 
     float holeCooldown = 3;
 
@@ -75,7 +79,9 @@ public class Player : MonoBehaviour
         //CONTADORES
         countertrap1 += Time.deltaTime;
         countertrap2 += Time.deltaTime;
+        countertrap3 += Time.deltaTime;
         stunCounter += Time.deltaTime;
+
 
         if(isPlayerStunned){
             stunnedCounter += Time.deltaTime;
@@ -189,6 +195,17 @@ public class Player : MonoBehaviour
 
             gameObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, .5f);
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        }
+    }
+
+    public void trap3Pressed(bool pressed)
+    {
+        Debug.Log("hola4");
+        if (pressed && countertrap3 > cooldownTrap3)
+        {
+            GameObject empuje = Instantiate(empujeTrap, transform.position, transform.rotation);
+            empuje.GetComponent<Mina>().owner = gameObject;
+            countertrap3 = 0;
         }
     }
 

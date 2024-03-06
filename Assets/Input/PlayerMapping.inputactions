@@ -33,6 +33,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Trap3",
+                    "type": "Button",
+                    "id": "0ad1b9c9-7034-4290-8486-bcae69bb9249",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Stun",
                     "type": "Button",
                     "id": "2e65cb5a-cd08-423c-8824-dda6ad79aaa6",
@@ -174,6 +183,28 @@
                     "action": "Stun",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5d382265-3e98-4647-96d0-c866b4e09563",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Trap3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f21e2c6f-3b55-4039-b0e4-2ae67b46298f",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Trap3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -203,6 +234,15 @@
                     "name": "Trap2",
                     "type": "Button",
                     "id": "f4bff7d2-6870-4ad2-9e5c-70b93cb784dc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Trap3",
+                    "type": "Button",
+                    "id": "715c25a0-2a20-42e7-bf14-e7fbac86dc51",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -348,6 +388,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Stun",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cb512117-c09e-4fb7-88d3-279ff526df97",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Trap3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "71f0d08a-fea8-4786-ad84-b21805cf5d76",
+                    "path": "<Keyboard>/backslash",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Trap3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

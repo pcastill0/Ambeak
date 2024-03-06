@@ -2952,6 +2952,7 @@ MonoBehaviour:
   inputStun: inputStun1
   cooldownTrap1: 5
   cooldownTrap2: 5
+  type: 0
   trap1: {fileID: 6621705754943966339, guid: 0f3cb7a8174eec5498a3ddd0396abf2d, type: 3}
   trap2: {fileID: 5535818256618146449, guid: f26a3b1903af77f4db77f34085ccfa5c, type: 3}
   stun1: {fileID: 3843956705368120301, guid: 325421a362da10845b262d29595e64c0, type: 3}
@@ -3212,6 +3213,7 @@ MonoBehaviour:
   inputStun: inputStun
   cooldownTrap1: 5
   cooldownTrap2: 5
+  type: 0
   trap1: {fileID: 6621705754943966339, guid: e53e143ad7d08574ba9e0a3076303293, type: 3}
   trap2: {fileID: 5535818256618146449, guid: 7875ad8ac20adc149828a4c68e110003, type: 3}
   stun1: {fileID: 3843956705368120301, guid: 325421a362da10845b262d29595e64c0, type: 3}
@@ -6873,7 +6875,7 @@ MonoBehaviour:
   numOfHearts: 3
   tipo: 1
   player: {fileID: 0}
-  enemy: {fileID: 1965668769}
+  enemy: {fileID: 0}
   hearts:
   - {fileID: 316083477}
   - {fileID: 174281515}
