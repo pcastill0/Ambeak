@@ -21,6 +21,7 @@ public class IAEnemigo : MonoBehaviour
     Color playerCol;
     public GameObject empujeTrap;
 
+    int randomTarget;
     float holeCDR = 3;
     float counter;
     int result;
@@ -44,37 +45,51 @@ public class IAEnemigo : MonoBehaviour
     private void Update()
     {
 
-
-        //MOVIMIENTO
-        //ELEGIR PLAYER 
-      
-            counter -= Time.deltaTime;
+        counter -= Time.deltaTime;
         if (counter <= 0)
         {
-            result = Random.Range(0, 2);
-            if (result == 0)
-            {
-                type = 1;
-            }
-            else if (result == 1)
-            {
-                type = 2;
-            }
+            randomTarget = Random.Range(1, 3);
             counter = 5;
         }
-        //DIRECCIÓN DEL PLAYER
-        if (type == 1)
+        switch (randomTarget)
         {
-            navMeshAgent.SetDestination(objetivo.position);
+            case 1:
+                if (objetivo != null && objetivo.gameObject.activeSelf)
+                {
+                    navMeshAgent.SetDestination(objetivo.position);
+                }
+                else
+                {
+                    if (objetivo2 != null && objetivo2.gameObject.activeSelf)
+                    {
+                        navMeshAgent.SetDestination(objetivo2.position);
+                    }
+                    //TIMER
+                }
+                break;
+            case 2:
+                if (objetivo2 != null && objetivo2.gameObject.activeSelf)
+                {
+                    navMeshAgent.SetDestination(objetivo2.position);
+                }
+                else
+                {
+                    if (objetivo != null && objetivo.gameObject.activeSelf)
+                    {
+                        navMeshAgent.SetDestination(objetivo.position);
+                    }
+                  
+                }
+                break;
+            default:
+                navMeshAgent.ResetPath();
+                Time.timeScale = 0f;
+                break;
         }
-        else if (type == 2)
-        {
-            navMeshAgent.SetDestination(objetivo2.position);
-        }
 
 
 
-        
+
         cooldownTrap1 -= Time.deltaTime;
         cooldownTrap2 -= Time.deltaTime;
         cooldownTrap3 -= Time.deltaTime;
@@ -108,6 +123,8 @@ public class IAEnemigo : MonoBehaviour
             GameObject trap = Instantiate(trap2, transform.position, transform.rotation);
             trap.GetComponent<HoleTrap>().owner = gameObject;
             cooldownTrap3 = 5;
+            cooldownTrap1 += 4;
+            cooldownTrap2 += 3;
 
 
             gameObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, .5f);
