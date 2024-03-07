@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 069c324d30110fb4984fb1fbc829f4d5
+guid: 7ca66de7ec675904592945ba90d9a99a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: character_20x20_white_0
+      name: penege2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe4458276aa791a4e97896ff432cc5db
-      internalID: 222475623
+      spriteID: 113a20b5b9e68514c867e499cd7fad92
+      internalID: -129778106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_1
+      name: penege2_1
       rect:
         serializedVersion: 2
         x: 20
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19ed137e5403ae041a2180852603e5a2
-      internalID: 1350251943
+      spriteID: cec21fe176977cc448c939a11b1805a2
+      internalID: 1967603246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_2
+      name: penege2_2
       rect:
         serializedVersion: 2
         x: 40
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90fcc23bf532f8f4287041e787babf6e
-      internalID: 1252482520
+      spriteID: 613884e87347b354fb8cb46002336651
+      internalID: -1578884606
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_3
+      name: penege2_3
       rect:
         serializedVersion: 2
         x: 60
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ff6b69961d6d6e4caddadf9cf04cc5d
-      internalID: 780666587
+      spriteID: c8392443184d2a8419dd365ad5cd4444
+      internalID: -40778347
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_4
+      name: penege2_4
       rect:
         serializedVersion: 2
         x: 80
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9ee1010844dfdb41be7190763116e97
-      internalID: 2108132909
+      spriteID: 03d1c0778c160c742addfb201369bb5f
+      internalID: 1419350915
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_5
+      name: penege2_5
       rect:
         serializedVersion: 2
         x: 100
@@ -229,56 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d18d44d60c96ab249959b818699032a2
-      internalID: -393362598
+      spriteID: 9297a8507ddec7a4d8cc6d8592e74060
+      internalID: 1636828738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 80
-        width: 20
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dbd76ea202a06064e912e0079c9d07e3
-      internalID: 377628662
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character_20x20_white_7
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 80
-        width: 20
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6f22fcdfe02fac44b97a6b111169f2be
-      internalID: -1389878850
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character_20x20_white_8
+      name: penege2_6
       rect:
         serializedVersion: 2
         x: 40
@@ -292,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93045e9ce67b6c144bde4ee4ff724cd1
-      internalID: -797851392
+      spriteID: 399902fc6d0841843b932f717413cb65
+      internalID: 1562558017
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_9
+      name: penege2_7
       rect:
         serializedVersion: 2
         x: 60
@@ -313,14 +271,56 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69117c5241334b24b98346adad70cee7
-      internalID: 1089728159
+      spriteID: 8477b1db15b152e45842fc86938ac2df
+      internalID: -1671631079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_10
+      name: penege2_8
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 80
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dc5282bb7f465f4fa6e387d62d1363f
+      internalID: -1050795062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: penege2_9
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 80
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 235eb2b7b70ebd849a9ab384c1f33690
+      internalID: 8062488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: penege2_10
       rect:
         serializedVersion: 2
         x: 0
@@ -334,14 +334,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40c2a00d90ec469499d256e3cf9134b8
-      internalID: -1060637956
+      spriteID: 9b9da0c826a8cbc489a04fc2d165e84e
+      internalID: -295830406
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_11
+      name: penege2_11
       rect:
         serializedVersion: 2
         x: 20
@@ -355,14 +355,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f2ab5481f1b1e048aa6c98ffad8562d
-      internalID: -406655626
+      spriteID: 589bcf780e3b9ca4187150c8ec1f6e9c
+      internalID: 1346546674
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_12
+      name: penege2_12
       rect:
         serializedVersion: 2
         x: 40
@@ -376,14 +376,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3c8958c5f89a274f91c6fb3f7f5ead2
-      internalID: 321101688
+      spriteID: d3131788e50f0774590aa55e03e4499e
+      internalID: -586468730
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_13
+      name: penege2_13
       rect:
         serializedVersion: 2
         x: 60
@@ -397,14 +397,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86cd70d7c2f508f4ab840148aded30c6
-      internalID: 366782476
+      spriteID: 3b70daca899b9cb4abae5d22ae87937e
+      internalID: -577992497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_14
+      name: penege2_14
       rect:
         serializedVersion: 2
         x: 80
@@ -418,14 +418,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6baf0f81e174e84794c029d4e975f1a
-      internalID: -977419063
+      spriteID: cd64ddac482e8764281114d54d8c44c1
+      internalID: 645875542
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_15
+      name: penege2_15
       rect:
         serializedVersion: 2
         x: 100
@@ -439,14 +439,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3795aa3eeb721c4a96d9c3e5e8f3cf8
-      internalID: -605356817
+      spriteID: 1fb84b15bf04fbd42865f3956cf2d616
+      internalID: 1351319386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_16
+      name: penege2_16
       rect:
         serializedVersion: 2
         x: 0
@@ -460,14 +460,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be15eba64bfccae47acbd698bd8a80af
-      internalID: -1404852477
+      spriteID: 3fc08995822b613428d7c7758be9b102
+      internalID: -1693599995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_17
+      name: penege2_17
       rect:
         serializedVersion: 2
         x: 20
@@ -481,17 +481,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c89aec1be9a9a9d4cb4f422c0edd27db
-      internalID: -445980146
+      spriteID: 6f65f7c57ce45e84ab6b93dda5665801
+      internalID: 1660141065
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_18
+      name: penege2_18
       rect:
         serializedVersion: 2
-        x: 40
+        x: 60
         y: 40
         width: 20
         height: 20
@@ -502,17 +502,59 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a4100f03be6d3c4eb94054eee5654e1
-      internalID: -435698891
+      spriteID: 11064e962f5d59e42b03df00b1515604
+      internalID: 2040793862
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_19
+      name: penege2_19
       rect:
         serializedVersion: 2
-        x: 0
+        x: 80
+        y: 40
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b5a2e20f686b2d4aa5e2152f95b1769
+      internalID: 903307541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: penege2_20
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 40
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b562cd99344b4864da446ca771ca917a
+      internalID: 1335492250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: penege2_21
+      rect:
+        serializedVersion: 2
+        x: 60
         y: 20
         width: 20
         height: 20
@@ -523,17 +565,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20d249c787adf664c9151904e4c50b74
-      internalID: 425684576
+      spriteID: a3d7576bf5cd056458d14142362c3afb
+      internalID: 1346907455
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_20
+      name: penege2_22
       rect:
         serializedVersion: 2
-        x: 20
+        x: 80
         y: 20
         width: 20
         height: 20
@@ -544,14 +586,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93680cf772d66574c8051965e86ff805
-      internalID: 1163172432
+      spriteID: c94859378f6bad642a30171e7c9a49c4
+      internalID: -383992919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_21
+      name: penege2_23
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 20
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a79d024c3e588564e817061af9878dc2
+      internalID: -51855000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: penege2_24
       rect:
         serializedVersion: 2
         x: 0
@@ -565,14 +628,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da60e40b7cd0fa64d8a244f51e32fa68
-      internalID: -555120354
+      spriteID: 7935831dcfbe32c409a9ad0ec92b2602
+      internalID: 307635363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_22
+      name: penege2_25
       rect:
         serializedVersion: 2
         x: 20
@@ -586,14 +649,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9895e53331515c34f9cf2ba002169d71
-      internalID: 1554252125
+      spriteID: 0ce0e33e791d70b4e80f34cca14369c9
+      internalID: -259208005
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_23
+      name: penege2_26
       rect:
         serializedVersion: 2
         x: 40
@@ -607,14 +670,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f45410710b5b5f43872cb5bfaa5199d
-      internalID: 244800533
+      spriteID: dfdf6f3de20035f4b95a750f68d685ce
+      internalID: 421950806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_24
+      name: penege2_27
       rect:
         serializedVersion: 2
         x: 60
@@ -628,14 +691,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 515560be438bffb44a309359ce66dd65
-      internalID: 332386541
+      spriteID: 0791087d39cfa4646973c85ad089c323
+      internalID: 501218064
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_25
+      name: penege2_28
       rect:
         serializedVersion: 2
         x: 80
@@ -649,14 +712,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac85e2ba46087ea4fbe3c218334ea8f1
-      internalID: -1711499602
+      spriteID: d5b5c92f82c13d5438de2cbfb238b157
+      internalID: 1629128557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_20x20_white_26
+      name: penege2_29
       rect:
         serializedVersion: 2
         x: 100
@@ -670,8 +733,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 954d832ff8dbf5949a26d633d60fca57
-      internalID: 1625357378
+      spriteID: b7c9c5fc8f4e55041b04b4b15d2c221c
+      internalID: 738007415
       vertices: []
       indices: 
       edges: []
@@ -687,33 +750,36 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      character_20x20_white_0: 222475623
-      character_20x20_white_1: 1350251943
-      character_20x20_white_10: -1060637956
-      character_20x20_white_11: -406655626
-      character_20x20_white_12: 321101688
-      character_20x20_white_13: 366782476
-      character_20x20_white_14: -977419063
-      character_20x20_white_15: -605356817
-      character_20x20_white_16: -1404852477
-      character_20x20_white_17: -445980146
-      character_20x20_white_18: -435698891
-      character_20x20_white_19: 425684576
-      character_20x20_white_2: 1252482520
-      character_20x20_white_20: 1163172432
-      character_20x20_white_21: -555120354
-      character_20x20_white_22: 1554252125
-      character_20x20_white_23: 244800533
-      character_20x20_white_24: 332386541
-      character_20x20_white_25: -1711499602
-      character_20x20_white_26: 1625357378
-      character_20x20_white_3: 780666587
-      character_20x20_white_4: 2108132909
-      character_20x20_white_5: -393362598
-      character_20x20_white_6: 377628662
-      character_20x20_white_7: -1389878850
-      character_20x20_white_8: -797851392
-      character_20x20_white_9: 1089728159
+      penege2_0: -129778106
+      penege2_1: 1967603246
+      penege2_10: -295830406
+      penege2_11: 1346546674
+      penege2_12: -586468730
+      penege2_13: -577992497
+      penege2_14: 645875542
+      penege2_15: 1351319386
+      penege2_16: -1693599995
+      penege2_17: 1660141065
+      penege2_18: 2040793862
+      penege2_19: 903307541
+      penege2_2: -1578884606
+      penege2_20: 1335492250
+      penege2_21: 1346907455
+      penege2_22: -383992919
+      penege2_23: -51855000
+      penege2_24: 307635363
+      penege2_25: -259208005
+      penege2_26: 421950806
+      penege2_27: 501218064
+      penege2_28: 1629128557
+      penege2_29: 738007415
+      penege2_3: -40778347
+      penege2_4: 1419350915
+      penege2_5: 1636828738
+      penege2_6: 1562558017
+      penege2_7: -1671631079
+      penege2_8: -1050795062
+      penege2_9: 8062488
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
