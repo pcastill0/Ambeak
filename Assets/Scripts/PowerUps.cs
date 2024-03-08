@@ -23,12 +23,12 @@ public class PowerUps : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (collision.GetComponent<Player>() != null)
+            if (collision.GetComponent<Player>() != null && collision.GetComponent<Hearts>() != null)
             {
                 switch (type)
                 {
                     case 1:
-                        collision.GetComponent<Player>().HealthUp();
+                        collision.GetComponent<Hearts>().modifyHealth(1);
                         break;
 
                     case 2:

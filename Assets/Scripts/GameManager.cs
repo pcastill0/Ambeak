@@ -15,21 +15,18 @@ public class GameManager : MonoBehaviour
 
     public GameObject pausaMenuUI;
 
-
-
-
-
     // Start is called before the first frame update
     void Start()
     {
         pausaMenuUI.SetActive(false);   
-
     }
+
     public void reanudarJuego()
     {
         Time.timeScale = 1f;
         pausaMenuUI.SetActive(false);
     }
+
     public void reiniciarJuego()
     {
         SceneManager.LoadScene("MainMenu");
@@ -63,6 +60,8 @@ public class GameManager : MonoBehaviour
                 pausaMenuUI.SetActive(true);
             }
         }
+
+        //Generate powerUps
         counter += Time.deltaTime;
         if (counter > 4)
         {
@@ -84,8 +83,6 @@ public class GameManager : MonoBehaviour
                     power.transform.position = new Vector2(Random.Range(-9, 9), Random.Range(-4, 4));
                     break;
             }
-
-
         }
     }
 }

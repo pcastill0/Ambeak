@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     float countertrap3 = 0;
 
     float holeCooldown = 3;
+    bool bajoTierra = false;
 
     float stunCooldown = 1;
     float stunCounter= 0;
@@ -102,6 +103,7 @@ public class Player : MonoBehaviour
             GameObject trap3 = Instantiate(trap2, transform.position, transform.rotation);
             trap3.GetComponent<HoleTrap>().owner = gameObject;
             Destroy(trap3, 2);
+            bajoTierra = false;
         }
 
         //LIMITES MOVIMIENTO
@@ -136,14 +138,6 @@ public class Player : MonoBehaviour
         }
 
     }
-   
-
-    public void HealthUp()
-    {
-        if (gameObject.GetComponent<Hearts>().health < gameObject.GetComponent<Hearts>().numOfHearts) {
-            gameObject.GetComponent<Hearts>().health++;
-        }
-    }
 
     public void speedUp()
     {
@@ -164,16 +158,18 @@ public class Player : MonoBehaviour
     {
         cooldownTrap1 /= 2f;
         cooldownTrap2 /= 2f;
+        cooldownTrap3 /= 2f;
         yield return new WaitForSeconds(7.5f);
         cooldownTrap1 *= 2f;
         cooldownTrap2 *= 2f;
+        cooldownTrap3 *= 2f;
 
     }
 
     public void trap1Pressed(bool pressed)
     {
         Debug.Log("hola");
-        if (pressed && countertrap1 > cooldownTrap1)
+        if (pressed && countertrap1 > cooldownTrap1 && !bajoTierra)
         {
             GameObject trapp = Instantiate(trap1, transform.position, transform.rotation);
             trapp.GetComponent<Trampa>().owner = gameObject;
@@ -185,10 +181,11 @@ public class Player : MonoBehaviour
     {
         Debug.Log("hola2");
 
-        if (pressed && countertrap2 > 5)
+        if (pressed && countertrap2 > 5 && !bajoTierra)
         {
             holeCooldown = 3;
             countertrap2 = 0;
+            bajoTierra = true;
 
             GameObject trap = Instantiate(trap2, transform.position, transform.rotation);
             trap.GetComponent<HoleTrap>().owner = gameObject;
@@ -201,7 +198,7 @@ public class Player : MonoBehaviour
     public void trap3Pressed(bool pressed)
     {
         Debug.Log("hola4");
-        if (pressed && countertrap3 > cooldownTrap3)
+        if (pressed && countertrap3 > cooldownTrap3 && !bajoTierra)
         {
             GameObject empuje = Instantiate(empujeTrap, transform.position, transform.rotation);
             empuje.GetComponent<Mina>().owner = gameObject;
@@ -212,7 +209,7 @@ public class Player : MonoBehaviour
     public void stunPressed(bool pressed)
     {
         Debug.Log("hola3");
-        if (pressed && stunCounter > stunCooldown)
+        if (pressed && stunCounter > stunCooldown && !bajoTierra)
         {
             stunCounter = 0;
             if (movementInput.magnitude > 0.01f)

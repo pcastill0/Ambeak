@@ -23,8 +23,8 @@ public class HoleTrap : MonoBehaviour
         {
             if (collision.gameObject != owner)
             {
-                collision.GetComponent<Hearts>().health -= 1;
-                Destroy(this.gameObject);
+                collision.GetComponent<Hearts>().modifyHealth(-1);
+                Destroy(gameObject);
 
             }
         }

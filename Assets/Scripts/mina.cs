@@ -20,7 +20,7 @@ public class Mina : MonoBehaviour
 
             if (heartsComponent != null)
             {
-                heartsComponent.health -= 1;
+                heartsComponent.modifyHealth(-1);
 
                 // Calcular la dirección opuesta al vector de la mina
                 Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;

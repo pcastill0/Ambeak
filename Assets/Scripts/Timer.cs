@@ -5,10 +5,8 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    public Player player1;
-    public Player player2;
-    public GameObject iaWin;
     public TMP_Text contadorText;
+
     public float tiempoInicial = 60f;
     private float tiempoRestante;
     public int contador;
@@ -16,6 +14,10 @@ public class Timer : MonoBehaviour
     public GameObject[] jugadores;
     public GameObject[] textosVictoria;
 
+    public int vidasMasAltas;
+    public bool empate;
+    public GameObject jugadorConMasVidas;
+    public int playersLeft;
     private void Start()
     {
         tiempoRestante = tiempoInicial;
@@ -25,29 +27,26 @@ public class Timer : MonoBehaviour
 
     private void Update()
     {
-        if (tiempoRestante > 0f)
+        tiempoRestante -= Time.deltaTime;
+        if(tiempoRestante < 0 )
         {
-            tiempoRestante -= Time.deltaTime;
-            ActualizarContador();
+            tiempoRestante = 0;
         }
-        else
+        ActualizarContador();
+
+        jugadorConMasVidas = null;
+        vidasMasAltas = 0;
+        empate = false;
+        playersLeft = 0;
+
+        foreach (GameObject jugador in jugadores)
         {
-            tiempoRestante = 0f;
-            ActualizarContador();
-
-            if (player1 == null && player2 == null)
+            Debug.Log("recorro");
+            if (jugador != null)
             {
-                iaWin.SetActive(true);
-                Time.timeScale = 0;
-            }
-
-            GameObject jugadorConMasVidas = null;
-            int vidasMasAltas = 0;
-            bool empate = false;
-
-            foreach (GameObject jugador in jugadores)
-            {
+                playersLeft++;
                 Hearts hearts = jugador.GetComponent<Hearts>();
+
                 if (hearts != null && hearts.health > vidasMasAltas)
                 {
                     vidasMasAltas = hearts.health;
@@ -59,36 +58,28 @@ public class Timer : MonoBehaviour
                     empate = true;
                 }
             }
+        }
 
-            if (empate)
+        if (empate && tiempoRestante == 0)
+        {
+            ReiniciarTemporizador();
+        } 
+        else if ( playersLeft == 1 || tiempoRestante == 0)
+        {
+            for (int i = 0; i < jugadores.Length; i++)
             {
-                Debug.Log("Empate");
-                ReiniciarTemporizador();
-            }
-            else if (jugadorConMasVidas != null)
-            {
-                Debug.Log("PlayerWinner: " + jugadorConMasVidas.name);
-                
-                for (int i = 0; i < jugadores.Length; i++)
+                if (jugadores[i] == jugadorConMasVidas)
                 {
-                   
-                    if (jugadores[i] == jugadorConMasVidas)
-                    {
-                        textosVictoria[i].SetActive(true);
-                        Time.timeScale = 0;
-                      
-                    }
-                    else
-                    {
-                        textosVictoria[i].SetActive(false);
-                    }
+                    textosVictoria[i].SetActive(true);
+                    Time.timeScale = 0;
+                }
+                else
+                {
+                    textosVictoria[i].SetActive(false);
                 }
             }
-            else
-            {
-                Debug.Log("Error");
-            }
         }
+
     }
 
     private void ActualizarContador()
@@ -104,7 +95,6 @@ public class Timer : MonoBehaviour
         tiempoRestante = tiempoInicial;
         ActualizarContador();
 
-      
         foreach (var textoVictoria in textosVictoria)
         {
             textoVictoria.SetActive(false);
