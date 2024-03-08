@@ -13,12 +13,14 @@ public class Player : MonoBehaviour
     public string inputStun;
     public float cooldownTrap1 = 5f;
     public float cooldownTrap2 = 5f;
+    public float cooldownTrap3 = 5f;
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
 
     public GameObject trap1;
     public GameObject trap2;
+    public GameObject trap3;
     public GameObject stun1;
     public GameObject stunEffect;
     public bool isPlayerStunned = false;
@@ -27,6 +29,7 @@ public class Player : MonoBehaviour
     float counter = 0;
     float holeCDR = 3;
     float stunCDR = 5;
+    float minaCDR = 0;
 
     Color playerCol;
     public float limiteXpos;
@@ -60,19 +63,20 @@ public class Player : MonoBehaviour
 
         //CONTADORES
         counter += Time.deltaTime;
+        minaCDR += Time.deltaTime;
         //CONTADOR CDR
         if (gameObject.GetComponent<BoxCollider2D>().enabled == false)
         {
             holeCDR -= Time.deltaTime;
         }
         //TRAMPA OSO
-     
+/*
         if (Input.GetButtonDown(inputTrap) && counter > cooldownTrap1)
         {
             GameObject trap = Instantiate(trap1, transform.position, transform.rotation);
             trap.GetComponent<Trampa>().owner = gameObject;
             counter = 0;
-        }
+        }*/
 
         //TRAMPA GUJERO
         if (Input.GetButtonDown(inputTrap1) && counter > 5)
@@ -87,6 +91,13 @@ public class Player : MonoBehaviour
      
 
 
+        }
+        //MINA
+        if (Input.GetButtonDown(inputTrap) && minaCDR > cooldownTrap3)
+        {
+            GameObject mine = Instantiate(trap3, transform.position, transform.rotation);
+            mine.GetComponent<Mina>().owner = gameObject;
+            counter = 0;
         }
 
         //COMPROBACION TIEMPO (GUJERO)

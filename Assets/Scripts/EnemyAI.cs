@@ -14,6 +14,7 @@ public class EnemyAI : MonoBehaviour
     public float holeCDR = 1f;
     public GameObject trap1;
     public GameObject trap2;
+    public GameObject trap3;
     public int number;
     public bool hole;
     Color playerCol;
@@ -23,6 +24,9 @@ public class EnemyAI : MonoBehaviour
     public float limiteYpos;
     public float limiteYneg;
 
+
+
+   
 
     void Start()
     {
@@ -81,7 +85,7 @@ public class EnemyAI : MonoBehaviour
 
             if (contador >= 5f)
             {
-                number = Random.Range(0, 2);
+                number = 2;
                 if (!hole)
                 {
                     if (number == 0)
@@ -98,7 +102,13 @@ public class EnemyAI : MonoBehaviour
                         gameObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, .5f);
                         gameObject.GetComponent<BoxCollider2D>().enabled = false;
                     }
+                else if (number == 2)
+                {
+                    GameObject trap = Instantiate(trap3, transform.position, Quaternion.identity);
+                    trap.GetComponent<Trampa>().owner = gameObject;
+                    contador = 0;
                 }
+            }
             }
 
             //COMPROBACION TIEMPO (GUJERO)
