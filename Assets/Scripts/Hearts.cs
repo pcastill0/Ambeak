@@ -5,11 +5,17 @@ using UnityEngine.UI;
 
 public class Hearts : MonoBehaviour
 {
-    public int health;
-    public int numOfHearts;
-    public int tipo;
+    public int health = 3;
+    public int numOfHearts = 3;
+   
+
+    public GameObject player;
+    /*
     public Player player;
-    public EnemyAI enemy;
+    public IAEnemigo enemy;
+     public int tipo;
+    */
+
 
     public Image[] hearts;
     public Sprite fullHeart;
@@ -17,6 +23,7 @@ public class Hearts : MonoBehaviour
 
 void Update()
     {
+        /*
         if (health <= 0 && tipo == 0)
         {
             player.transform.position = new Vector3(1000, 1000, 0);
@@ -50,6 +57,45 @@ void Update()
                 hearts[i].enabled = true;
             }
             else{
+                hearts[i].enabled = false;
+            }
+
+        }
+        */
+    }
+
+    public void modifyHealth(int cantidad)
+    {
+        health += cantidad;
+        if(health <= 0)
+        {
+            Destroy(player);
+        } 
+        else
+        {
+            if (health > numOfHearts)
+            {
+                health = numOfHearts;
+            }
+        }
+
+        //Cambiar canvas corazones
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            if (i < health)
+            {
+                hearts[i].sprite = fullHeart;
+            }
+            else
+            {
+                hearts[i].sprite = emptyHeart;
+            }
+            if (i < numOfHearts)
+            {
+                hearts[i].enabled = true;
+            }
+            else
+            {
                 hearts[i].enabled = false;
             }
 

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class HoleTrap : MonoBehaviour
 {
-
     public GameObject owner;
     // Start is called before the first frame update
     void Start()
@@ -24,8 +23,9 @@ public class HoleTrap : MonoBehaviour
         {
             if (collision.gameObject != owner)
             {
-                collision.GetComponent<Hearts>().health -= 1;
-                
+                collision.GetComponent<Hearts>().modifyHealth(-1);
+                Destroy(gameObject);
+
             }
         }
     }

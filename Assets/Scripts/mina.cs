@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class Mina : MonoBehaviour
 {
+    public Animator empujeFX;
     public GameObject owner;
     public GameManager manager;
+    public float knockbackForce;
 
     void Start()
     {
@@ -19,7 +21,11 @@ public class Mina : MonoBehaviour
 
             if (heartsComponent != null)
             {
-                heartsComponent.health -= 1;
+                heartsComponent.modifyHealth(-1);
+
+                Animator a = Instantiate(empujeFX, transform.position, Quaternion.identity);
+                CameraShake.Shake(0.5f, 1f);
+               
 
                 // Calcular la dirección opuesta al vector de la mina
                 Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;
@@ -28,10 +34,11 @@ public class Mina : MonoBehaviour
                 Rigidbody2D playerRigidbody = collision.GetComponent<Rigidbody2D>();
                 if (playerRigidbody != null)
                 {
-                    float knockbackForce = 10f; // Puedes ajustar la fuerza según sea necesario
+                    knockbackForce = 10f; // Puedes ajustar la fuerza según sea necesario
                     playerRigidbody.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
                 }
             }
+            
 
             Destroy(gameObject);
         }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7812958714321444327}
   - component: {fileID: 4685672071820862188}
   - component: {fileID: 7157177801466798558}
+  - component: {fileID: -13898871688891864}
   m_Layer: 0
   m_Name: Mine 2
   m_TagString: Trap
@@ -29,11 +30,11 @@ Transform:
   m_GameObject: {fileID: 8233140248677389211}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.399385, y: 2.901685, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3650004751834988089
 SpriteRenderer:
@@ -119,7 +120,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.06}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -130,7 +131,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.24, y: 0.21}
   m_EdgeRadius: 0
 --- !u!114 &4685672071820862188
 MonoBehaviour:
@@ -144,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d7e6617dc39ad24095523d1b495c570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  empujeFX: {fileID: -3655345195925733405, guid: dae5fc1cd1106f64ba3e0c7799a51cfb, type: 3}
   owner: {fileID: 0}
   manager: {fileID: 0}
 --- !u!82 &7157177801466798558
@@ -242,3 +244,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &-13898871688891864
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8233140248677389211}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 40950bac0eb3d2349bdb0bf2bd6eb94c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

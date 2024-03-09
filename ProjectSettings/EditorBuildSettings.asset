@@ -11,13 +11,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: ccc2acc9be9ffb5418912b0973666497
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/2PlayersToni.unity
     guid: 9d97d198f0b408045886a892b0572450
+  - enabled: 0
+    path: Assets/Scenes/Toni2.unity
+    guid: bb5a1e1d9d0ce474f85fe7a4a915ccdf
   - enabled: 1
-    path: Assets/Scenes/2PlayersRoger.unity
-    guid: b1e561023557a1346a3252d7e5dfe7df
-  - enabled: 1
-    path: Assets/Scenes/2PlayersPedro.unity
-    guid: 3a083941b2fbbad4791d2a0ac45d8045
-  m_configObjects: {}
+    path: Assets/Scenes/Pedro.unity
+    guid: 7debb783fb4623c47a9be59606f53187
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 43deb812e0988524892a3b196d706285, type: 2}

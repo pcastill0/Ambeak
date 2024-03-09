@@ -1,114 +1,107 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
 
     public float speed;
-    public string inputHorizontal;
-    public string inputVertical;
-    public string inputTrap;
-    public string inputTrap1;
-    public string inputStun;
+    public int type;
+
+    //public string inputStun;
+
+    public GameObject trap1;
+    public GameObject trap2;
+    public GameObject stun1;
+    public GameObject empujeTrap;
+    public GameObject stunEffect;
+
+    public bool isPlayerStunned = false;
+    public bool isDead;
+
     public float cooldownTrap1 = 5f;
     public float cooldownTrap2 = 5f;
     public float cooldownTrap3 = 5f;
 
-    private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
+    float countertrap1 = 0;
+    float countertrap2 = 0;
+    float countertrap3 = 0;
 
-    public GameObject trap1;
-    public GameObject trap2;
-    public GameObject trap3;
-    public GameObject stun1;
-    public GameObject stunEffect;
-    public bool isPlayerStunned = false;
-    public bool isDead;
+    float holeCooldown = 3;
+    bool bajoTierra = false;
 
-    float counter = 0;
-    float holeCDR = 3;
-    float stunCDR = 5;
-    float minaCDR = 0;
+    float stunCooldown = 1;
+    float stunCounter= 0;
 
-    Color playerCol;
-    public float limiteXpos;
-    public float limiteXneg;
-    public float limiteYpos;
-    public float limiteYneg;
+    float stunnedCooldown = 3;
+    float stunnedCounter = 0;
+
+    private float limiteXpos = 10;
+    private float limiteXneg = -10;
+    private float limiteYpos = 5;
+    private float limiteYneg = -5;
 
 
     public Animator animator;
+    Color playerCol;
+
+    public int playerIndex = 0;
+
+    private Vector2 movementInput = Vector2.zero;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         playerCol = gameObject.GetComponent<SpriteRenderer>().color;
         isDead = false;
     }
 
-    void FixedUpdate()
+
+    void Update()
     {
+
         if (isDead)
         {
             gameObject.GetComponent<Player>().enabled = false;
         }
+
         //MOVIMIENTO PLAYER
-        float horizontal = Input.GetAxis(inputHorizontal);
-        float vertical = Input.GetAxis(inputVertical);
+        if(isPlayerStunned && stunnedCounter > stunnedCooldown)
+        {
+            isPlayerStunned = false;
+            stunnedCounter = 0;
+        }
+
         if (!isPlayerStunned)
         {
-            transform.position += new Vector3(horizontal, vertical, 0) * Time.deltaTime * speed;
+            transform.position += new Vector3(movementInput.x, movementInput.y, 0) * Time.deltaTime * speed;
         }
 
         //CONTADORES
-        counter += Time.deltaTime;
-        minaCDR += Time.deltaTime;
+        countertrap1 += Time.deltaTime;
+        countertrap2 += Time.deltaTime;
+        countertrap3 += Time.deltaTime;
+        stunCounter += Time.deltaTime;
+
+
+        if(isPlayerStunned){
+            stunnedCounter += Time.deltaTime;
+        }
+
         //CONTADOR CDR
         if (gameObject.GetComponent<BoxCollider2D>().enabled == false)
         {
-            holeCDR -= Time.deltaTime;
-        }
-        //TRAMPA OSO
-/*
-        if (Input.GetButtonDown(inputTrap) && counter > cooldownTrap1)
-        {
-            GameObject trap = Instantiate(trap1, transform.position, transform.rotation);
-            trap.GetComponent<Trampa>().owner = gameObject;
-            counter = 0;
-        }*/
-
-        //TRAMPA GUJERO
-        if (Input.GetButtonDown(inputTrap1) && counter > 5)
-        {
-            holeCDR = 3;
-            GameObject trap = Instantiate(trap2, transform.position, transform.rotation);
-            trap.GetComponent<Trampa>().owner = gameObject;
-            counter = 0;
-
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, .5f);
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
-     
-
-
-        }
-        //MINA
-        if (Input.GetButtonDown(inputTrap) && minaCDR > cooldownTrap3)
-        {
-            GameObject mine = Instantiate(trap3, transform.position, transform.rotation);
-            mine.GetComponent<Mina>().owner = gameObject;
-            counter = 0;
+            holeCooldown -= Time.deltaTime;
         }
 
         //COMPROBACION TIEMPO (GUJERO)
-        if (holeCDR <= 0)
+        if (holeCooldown <= 0)
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
             gameObject.GetComponent<SpriteRenderer>().color = playerCol;
-            holeCDR = 3;
+            holeCooldown = 3;
             GameObject trap3 = Instantiate(trap2, transform.position, transform.rotation);
-            trap3.GetComponent<Trampa>().owner = gameObject;
+            trap3.GetComponent<HoleTrap>().owner = gameObject;
             Destroy(trap3, 2);
+            bajoTierra = false;
         }
 
         //LIMITES MOVIMIENTO
@@ -129,32 +122,11 @@ public class Player : MonoBehaviour
             transform.position = new Vector3(transform.position.x, limiteYpos, 0);
         }
 
-        //STUN
-        stunCDR -= Time.deltaTime;
-
-        Vector3 direction = new Vector3(Input.GetAxis(inputHorizontal), Input.GetAxis(inputVertical), 0);
-        if (Input.GetButtonDown(inputStun) && stunCDR <= 0)
-        {
-            stunCDR = 5;
-            if (direction.magnitude > 0.01f)
-            {
-                float angle = Mathf.Atan2(direction.x, -(direction.y)) * Mathf.Rad2Deg;
-                GameObject stun = Instantiate(stun1, transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
-                stun.GetComponent<Stun>().owner = gameObject;
-                Destroy(stun, 0.3f);
-            }
-            else
-            {
-                GameObject stun = Instantiate(stun1, transform.position, Quaternion.identity);
-                stun.GetComponent<Stun>().owner = gameObject;
-                Destroy(stun, 0.3f);
-            }
-        }
         //ANIMACIONES
-        if (horizontal != 0 || vertical != 0)
+        if (movementInput.x != 0 || movementInput.y != 0)
         {
-            animator.SetFloat("X", horizontal);
-            animator.SetFloat("Y", vertical);
+            animator.SetFloat("X", movementInput.x);
+            animator.SetFloat("Y", movementInput.y);
 
             animator.SetBool("isWalking", true);
         }
@@ -162,22 +134,13 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("isWalking", false);
         }
-    }
-     
-   
 
-    public void HealthUp()
-    {
-        if (gameObject.GetComponent<Hearts>().health < gameObject.GetComponent<Hearts>().numOfHearts) {
-            gameObject.GetComponent<Hearts>().health++;
-        }
     }
 
     public void speedUp()
     {
         StartCoroutine(speedUpCo());
     }
-
     private IEnumerator speedUpCo()
     {
         speed *= 1.25f;
@@ -189,14 +152,82 @@ public class Player : MonoBehaviour
     {
         StartCoroutine(reduceCooldownCo());
     }
-
     private IEnumerator reduceCooldownCo()
     {
         cooldownTrap1 /= 2f;
         cooldownTrap2 /= 2f;
+        cooldownTrap3 /= 2f;
         yield return new WaitForSeconds(7.5f);
         cooldownTrap1 *= 2f;
         cooldownTrap2 *= 2f;
+        cooldownTrap3 *= 2f;
 
+    }
+
+    public void trap1Pressed(bool pressed)
+    {
+        Debug.Log("hola");
+        if (pressed && countertrap1 > cooldownTrap1 && !bajoTierra)
+        {
+            GameObject trapp = Instantiate(trap1, transform.position, transform.rotation);
+            trapp.GetComponent<Trampa>().owner = gameObject;
+            countertrap1 = 0;
+        }
+    }
+
+    public void trap2Pressed(bool pressed)
+    {
+        Debug.Log("hola2");
+
+        if (pressed && countertrap2 > 5 && !bajoTierra)
+        {
+            holeCooldown = 3;
+            countertrap2 = 0;
+            bajoTierra = true;
+
+            GameObject trap = Instantiate(trap2, transform.position, transform.rotation);
+            trap.GetComponent<HoleTrap>().owner = gameObject;
+
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, .5f);
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        }
+    }
+
+    public void trap3Pressed(bool pressed)
+    {
+        Debug.Log("hola4");
+        if (pressed && countertrap3 > cooldownTrap3 && !bajoTierra)
+        {
+            GameObject empuje = Instantiate(empujeTrap, transform.position, transform.rotation);
+            empuje.GetComponent<Mina>().owner = gameObject;
+            countertrap3 = 0;
+        }
+    }
+
+    public void stunPressed(bool pressed)
+    {
+        Debug.Log("hola3");
+        if (pressed && stunCounter > stunCooldown && !bajoTierra)
+        {
+            stunCounter = 0;
+            if (movementInput.magnitude > 0.01f)
+            {
+                float angle = Mathf.Atan2(movementInput.x, - (movementInput.y)) * Mathf.Rad2Deg;
+                GameObject stun = Instantiate(stun1, transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
+                stun.GetComponent<Stun>().owner = gameObject;
+                Destroy(stun, 0.3f);
+            }
+            else
+            {
+                GameObject stun = Instantiate(stun1, transform.position, Quaternion.identity);
+                stun.GetComponent<Stun>().owner = gameObject;
+                Destroy(stun, 0.3f);
+            }
+        }
+    }
+
+    public void SetInputVector(Vector2 direction)
+    {
+        movementInput = direction;
     }
 }
