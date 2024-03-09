@@ -19,7 +19,6 @@ public class IAEnemigo : MonoBehaviour
     public GameObject trap2;
     public GameObject trap3;
     Color playerCol;
-    public GameObject empujeTrap;
 
     int randomTarget;
     float holeCDR = 3;
@@ -87,9 +86,6 @@ public class IAEnemigo : MonoBehaviour
                 break;
         }
 
-
-
-
         cooldownTrap1 -= Time.deltaTime;
         cooldownTrap2 -= Time.deltaTime;
         cooldownTrap3 -= Time.deltaTime;
@@ -106,7 +102,7 @@ public class IAEnemigo : MonoBehaviour
         if(num == 1 && cooldownTrap2 <= 0)
         {
             //TRAMPA EMPUJE
-            GameObject empuje = Instantiate(empujeTrap, transform.position, transform.rotation);
+            GameObject empuje = Instantiate(trap3, transform.position, transform.rotation);
             empuje.GetComponent<Mina>().owner = gameObject;
             cooldownTrap2 = 5;
         }
@@ -119,7 +115,7 @@ public class IAEnemigo : MonoBehaviour
 
         if (num == 2 && cooldownTrap3 <= 0)
         {
-            //TRAMPA EMPUJE
+            //TRAMPA GUHERO
             GameObject trap = Instantiate(trap2, transform.position, transform.rotation);
             trap.GetComponent<HoleTrap>().owner = gameObject;
             cooldownTrap3 = 5;

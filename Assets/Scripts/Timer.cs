@@ -13,6 +13,7 @@ public class Timer : MonoBehaviour
 
     public GameObject[] jugadores;
     public GameObject[] textosVictoria;
+    public GameObject menuFinal;
 
     public int vidasMasAltas;
     public bool empate;
@@ -71,6 +72,7 @@ public class Timer : MonoBehaviour
                 if (jugadores[i] == jugadorConMasVidas)
                 {
                     textosVictoria[i].SetActive(true);
+                    menuFinal.SetActive(true);
                     Time.timeScale = 0;
                 }
                 else

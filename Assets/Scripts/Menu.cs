@@ -11,6 +11,11 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(name);
     }
 
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     public void Quit()
     {
         Debug.Log("He salido de la aplicacion");
