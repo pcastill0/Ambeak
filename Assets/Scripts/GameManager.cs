@@ -15,13 +15,21 @@ public class GameManager : MonoBehaviour
 
     public GameObject pausaMenuUI;
 
+    private cuenta_atras cuentaAtrasScript;
+
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 1f;
-        pausaMenuUI.SetActive(false);   
+        Time.timeScale = 0f;
+        Invoke("ReanudarJuego", 8f);
+        pausaMenuUI.SetActive(false);
+       
     }
-
+    void ReanudarJuego()
+    {
+        // Reanudar el juego
+        Time.timeScale = 1f;
+    }
     public void reanudarJuego()
     {
         Time.timeScale = 1f;
@@ -37,17 +45,13 @@ public class GameManager : MonoBehaviour
     public void reproducirAudio()
     {
         audioSource = GetComponent<AudioSource>();
-
-
         audioSource.clip = sonidoMina;
-
         audioSource.Play();
     }
-    
 
     void Update()
     {
-        //PAUSAR JUEGO
+        // PAUSAR JUEGO
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (Time.timeScale == 0f)
@@ -57,12 +61,20 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                Time.timeScale = 0f; // Pausar el juego
-                pausaMenuUI.SetActive(true);
+                if (cuentaAtrasScript.gameObject.activeSelf)
+                {
+                    // Si la cuenta atrás está activa, pausar el juego
+                    Time.timeScale = 0f;
+                }
+                else
+                {
+                    Time.timeScale = 1f; // Si no, pausar el juego normalmente
+                    pausaMenuUI.SetActive(true);
+                }
             }
         }
 
-        //Generate powerUps
+        // Generate powerUps
         counter += Time.deltaTime;
         if (counter > 4)
         {
@@ -87,4 +99,3 @@ public class GameManager : MonoBehaviour
         }
     }
 }
-
