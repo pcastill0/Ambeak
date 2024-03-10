@@ -1,0 +1,236 @@
+fileFormatVersion: 2
+guid: 133f16b157b0f7b4fbe4069e5457e7dc
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: explosionfondobik_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 613
+        width: 525
+        height: 450
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba6311b296130a34da22bfd3a7312fff
+      internalID: 730942781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosionfondobik_5
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 104
+        width: 538
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ae7d11d395bfe24b94a67928c6a9164
+      internalID: -1889515588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosionfondobik_0
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 127
+        width: 485
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f88cf630ab715e4a8e4e360e9458190
+      internalID: -466918920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      explosionfondobik_0: -466918920
+      explosionfondobik_1: -1427275353
+      explosionfondobik_10: 1160472380
+      explosionfondobik_11: 8675198
+      explosionfondobik_12: -834499023
+      explosionfondobik_13: 604986617
+      explosionfondobik_14: 1380745464
+      explosionfondobik_15: -1927822905
+      explosionfondobik_16: -1449698842
+      explosionfondobik_17: 1615973412
+      explosionfondobik_18: -323320533
+      explosionfondobik_19: 1077804289
+      explosionfondobik_2: 730942781
+      explosionfondobik_20: 717379603
+      explosionfondobik_21: 1131815621
+      explosionfondobik_22: -1921983773
+      explosionfondobik_23: 890232941
+      explosionfondobik_24: -893014234
+      explosionfondobik_25: -1721108371
+      explosionfondobik_26: 67680245
+      explosionfondobik_27: -526658893
+      explosionfondobik_28: 963600311
+      explosionfondobik_29: 641402308
+      explosionfondobik_3: 434755453
+      explosionfondobik_30: -504185227
+      explosionfondobik_31: 301307952
+      explosionfondobik_32: -1676538879
+      explosionfondobik_33: -1476740698
+      explosionfondobik_34: -1457848240
+      explosionfondobik_35: 893181845
+      explosionfondobik_36: -1548133138
+      explosionfondobik_37: 796620544
+      explosionfondobik_38: 1758588542
+      explosionfondobik_39: -440123511
+      explosionfondobik_4: -2145885936
+      explosionfondobik_40: 362087954
+      explosionfondobik_41: -662559037
+      explosionfondobik_42: -1425065326
+      explosionfondobik_43: -1951388224
+      explosionfondobik_44: 1103136764
+      explosionfondobik_45: -426622154
+      explosionfondobik_5: -1889515588
+      explosionfondobik_6: 1137034850
+      explosionfondobik_7: -321624172
+      explosionfondobik_8: -348474722
+      explosionfondobik_9: 1192414011
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
