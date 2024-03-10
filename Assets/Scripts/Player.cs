@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
@@ -47,6 +48,10 @@ public class Player : MonoBehaviour
 
     public Animator animator;
     public GameObject pausaMenuUI;
+    public GameObject restart;
+    public GameObject exit;
+    public GameObject info;
+    public GameObject menu;
 
     Color playerCol;
 
@@ -238,18 +243,29 @@ public class Player : MonoBehaviour
     public void onPause(bool pressed)
     {
         Debug.Log("pause");
-        if (pressed && countertrap3 > cooldownTrap3 && !bajoTierra && !isPlayerStunned)
+        if (pressed)
         {
             if (Time.timeScale == 0f)
             {
                 Time.timeScale = 1f; // Reanudar el juego
-                //pausaMenuUI.SetActive(false);
-            }
+                restart.SetActive(false);
+                exit.SetActive(false);
+                info.SetActive(false);
+                menu.SetActive(false);
+    //pausaMenuUI.SetActive(false);
+}
             else
             {
+                restart.SetActive(true);
+                exit.SetActive(true);
+                info.SetActive(true);
+                menu.SetActive(true);
+                Time.timeScale = 0f;
+                /*
                 if (cuentaAtrasScript.gameObject.activeSelf)
                 {
-                    // Si la cuenta atr�s est� activa, pausar el juego
+
+                    // Si la cuenta atras esta activa, pausar el juego
                     Time.timeScale = 0f;
                     SceneManager.LoadScene("Settings");
                 }
@@ -258,6 +274,7 @@ public class Player : MonoBehaviour
                     Time.timeScale = 1f; // Si no, pausar el juego normalmente
                     //pausaMenuUI.SetActive(true);
                 }
+                */
             }
         }
     }
