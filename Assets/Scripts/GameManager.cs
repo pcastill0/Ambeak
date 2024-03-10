@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -81,19 +82,27 @@ public class GameManager : MonoBehaviour
             GameObject power;
             int rand = Random.Range(0, 3);
             counter = 0;
+            float x;
+            float y;
+            NavMeshHit hit;
+            x = Random.Range(-9, 9);
+            y = Random.Range(-4, 4);
+            NavMesh.SamplePosition(new Vector2(x, y), out hit, Mathf.Infinity, NavMesh.AllAreas);
+
             switch (rand)
             {
+                
                 case 0:
                     power = Instantiate(powerUp1, transform.position, transform.rotation);
-                    power.transform.position = new Vector2(Random.Range(-9, 9), Random.Range(-4, 4));
+                    power.transform.position = hit.position;
                     break;
                 case 1:
                     power = Instantiate(powerUp2, transform.position, transform.rotation);
-                    power.transform.position = new Vector2(Random.Range(-9, 9), Random.Range(-4, 4));
+                    power.transform.position = hit.position;
                     break;
                 case 2:
                     power = Instantiate(powerUp3, transform.position, transform.rotation);
-                    power.transform.position = new Vector2(Random.Range(-9, 9), Random.Range(-4, 4));
+                    power.transform.position = hit.position;
                     break;
             }
         }

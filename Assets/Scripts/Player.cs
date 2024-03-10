@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -42,11 +43,14 @@ public class Player : MonoBehaviour
 
 
     public Animator animator;
+    public GameObject pausaMenuUI;
+
     Color playerCol;
 
     public int playerIndex = 0;
 
     private Vector2 movementInput = Vector2.zero;
+    private cuenta_atras cuentaAtrasScript;
 
     void Start()
     {
@@ -230,5 +234,32 @@ public class Player : MonoBehaviour
     public void SetInputVector(Vector2 direction)
     {
         movementInput = direction;
+    }
+
+    public void onPause(bool pressed)
+    {
+        Debug.Log("pause");
+        if (pressed && countertrap3 > cooldownTrap3 && !bajoTierra && !isPlayerStunned)
+        {
+            if (Time.timeScale == 0f)
+            {
+                Time.timeScale = 1f; // Reanudar el juego
+                //pausaMenuUI.SetActive(false);
+            }
+            else
+            {
+                if (cuentaAtrasScript.gameObject.activeSelf)
+                {
+                    // Si la cuenta atrás está activa, pausar el juego
+                    Time.timeScale = 0f;
+                    SceneManager.LoadScene("Settings");
+                }
+                else
+                {
+                    Time.timeScale = 1f; // Si no, pausar el juego normalmente
+                    //pausaMenuUI.SetActive(true);
+                }
+            }
+        }
     }
 }

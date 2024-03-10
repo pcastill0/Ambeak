@@ -70,4 +70,12 @@ public class PlayerInputHandler : MonoBehaviour
         }
     }
 
+    public void OnPause(CallbackContext context)
+    {
+        if (player != null)
+        {
+            player.onPause(context.action.triggered);
+        }
+    }
+
 }

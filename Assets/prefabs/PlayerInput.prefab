@@ -218,6 +218,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 715c25a0-2a20-42e7-bf14-e7fbac86dc51
     m_ActionName: P2/Trap3[/DualSenseGamepadHID/buttonEast,/Keyboard/backslash]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9d45b8e1-3dfe-4441-a27d-dd15db89e802
+    m_ActionName: P1/Pause[/DualSenseGamepadHID/start,/DualSenseGamepadHID1/start,/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: P1
