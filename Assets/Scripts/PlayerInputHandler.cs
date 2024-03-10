@@ -14,8 +14,14 @@ public class PlayerInputHandler : MonoBehaviour
     {
         Debug.Log("perro");
         playerInput = GetComponent<PlayerInput>();
+        Debug.Log(playerInput);
         Player[] players = FindObjectsOfType<Player>();
         int index = playerInput.playerIndex;
+        Debug.Log(playerInput.devices[0].name);
+        if (playerInput.devices[0].name == "XInputControllerWindows") {
+            Destroy(gameObject);
+        }
+       
         player = players.FirstOrDefault(m => m.playerIndex == index);
     }
 
@@ -67,6 +73,14 @@ public class PlayerInputHandler : MonoBehaviour
         if (player != null)
         {
             player.SetInputVector(context.ReadValue<Vector2>());
+        }
+    }
+
+    public void OnTrap4(CallbackContext context)
+    {
+        if(player != null)
+        {
+            player.trap4Pressed(context.action.triggered);
         }
     }
 
