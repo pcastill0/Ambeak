@@ -27,14 +27,14 @@ public class Mina : MonoBehaviour
                 CameraShake.Shake(0.5f, 1f);
                
 
-                // Calcular la dirección opuesta al vector de la mina
+             
                 Vector2 knockbackDirection = (collision.transform.position - transform.position).normalized;
 
-                // Aplicar una fuerza para hacer saltar hacia atrás al jugador
+                
                 Rigidbody2D playerRigidbody = collision.GetComponent<Rigidbody2D>();
                 if (playerRigidbody != null)
                 {
-                    knockbackForce = 10f; // Puedes ajustar la fuerza según sea necesario
+                    knockbackForce = 10f; 
                     playerRigidbody.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
                 }
             }

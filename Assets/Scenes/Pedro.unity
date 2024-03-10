@@ -2102,6 +2102,8 @@ MonoBehaviour:
   powerUp2: {fileID: 2053345353568730787, guid: 77b025fbedbf8e142b93fc92fb80e373, type: 3}
   powerUp3: {fileID: 2053345353568730787, guid: 006c616ea82fcc049913f56e2cc8e835, type: 3}
   sonidoMina: {fileID: 8300000, guid: c44fd14bbbdae0042a952512f2e6c5b1, type: 3}
+  sonidoEmpuje: {fileID: 8300000, guid: adb54b57ff3dc5542a4787243c74881c, type: 3}
+  sonidoLandmine: {fileID: 8300000, guid: c74594aa918e3db49844e66b03ac06d6, type: 3}
   pausaMenuUI: {fileID: 1965668767}
 --- !u!4 &373617988
 Transform:
@@ -2544,7 +2546,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &638807589
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4157,7 +4159,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1128167379
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10925,7 +10927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1359383001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11300,7 +11302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1497564986
 RectTransform:
   m_ObjectHideFlags: 0

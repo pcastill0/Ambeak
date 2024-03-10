@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
     public GameObject powerUp3;
 
     public AudioClip sonidoMina;
+    public AudioClip sonidoEmpuje;
+    public AudioClip sonidoLandmine;
+
+
     private AudioSource audioSource;
 
     public GameObject pausaMenuUI;
@@ -48,6 +52,19 @@ public class GameManager : MonoBehaviour
         audioSource.clip = sonidoMina;
         audioSource.Play();
     }
+    public void reproducirEmpuje()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = sonidoEmpuje;
+        audioSource.Play();
+    }
+    public void reproducirMina()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = sonidoLandmine;
+        audioSource.Play();
+    }
+
 
     void Update()
     {

@@ -6,11 +6,16 @@ public class Trampa : MonoBehaviour
 {
     public Animator humo;
     public GameObject owner;
-   
+
+    public GameManager manager;
+    public AudioClip sonidoMina;
+    private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
-        
+        manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = sonidoMina;
     }
 
     // Update is called once per frame
@@ -29,7 +34,10 @@ public class Trampa : MonoBehaviour
            
                 Animator a = Instantiate(humo, transform.position, Quaternion.identity);
                 CameraShake.Shake(0.5f, 1f);
-                
+
+                manager.reproducirMina();
+                audioSource.Play();
+
                 Destroy(a, 1.64f);
                 Destroy(this.gameObject);
 
