@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Sonidos.meta
+guid: 896367f1a37f18f4882b6509db6730af
+folderAsset: yes
+========
 guid: 7debb783fb4623c47a9be59606f53187
+>>>>>>>> main:Assets/Scenes/Pedro.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
