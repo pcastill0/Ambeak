@@ -14,41 +14,26 @@ public class GameManager : MonoBehaviour
     private AudioSource audioSource;
 
     public GameObject pausaMenuUI;
-    public GameObject Menu;
-    public GameObject vol;
-    public GameObject options;
-    public GameObject returnButton;
-    public GameObject info_cosas;
-    public GameObject boton_info;
+
+    private cuenta_atras cuentaAtrasScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 0f;
+        Invoke("ReanudarJuego", 8f);
         pausaMenuUI.SetActive(false);
-        info_cosas.SetActive(false);
-        pausaMenuUI.SetActive(false);
-        vol.SetActive(false);
-        options.SetActive(false);
+       
     }
-
+    void ReanudarJuego()
+    {
+        // Reanudar el juego
+        Time.timeScale = 1f;
+    }
     public void reanudarJuego()
     {
         Time.timeScale = 1f;
         pausaMenuUI.SetActive(false);
-    }
-
-    public void ver_info()
-    {
-        vol.SetActive(false);
-        info_cosas.SetActive(true);
-    }
-
-    public void returnToOptions()
-    {
-        options.SetActive(true);
-        vol.SetActive(false);
-        info_cosas.SetActive(false);
     }
 
     public void reiniciarJuego()
@@ -57,41 +42,39 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void globalSettings()
-    {
-        options.SetActive(false);
-        vol.SetActive(true);
-    }
-
     public void reproducirAudio()
     {
         audioSource = GetComponent<AudioSource>();
-
         audioSource.clip = sonidoMina;
-
         audioSource.Play();
     }
-    // Update is called once per frame
+
     void Update()
     {
-        //PAUSAR JUEGO
+        // PAUSAR JUEGO
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (Time.timeScale == 0f)
             {
                 Time.timeScale = 1f; // Reanudar el juego
                 pausaMenuUI.SetActive(false);
-                options.SetActive(false);
-                vol.SetActive(false);
             }
             else
             {
-                Time.timeScale = 0f; // Pausar el juego
-                pausaMenuUI.SetActive(true);
-                options.SetActive(true);
-                vol.SetActive(false);
+                if (cuentaAtrasScript.gameObject.activeSelf)
+                {
+                    // Si la cuenta atrás está activa, pausar el juego
+                    Time.timeScale = 0f;
+                }
+                else
+                {
+                    Time.timeScale = 1f; // Si no, pausar el juego normalmente
+                    pausaMenuUI.SetActive(true);
+                }
             }
         }
+
+        // Generate powerUps
         counter += Time.deltaTime;
         if (counter > 4)
         {
@@ -116,4 +99,3 @@ public class GameManager : MonoBehaviour
         }
     }
 }
-
