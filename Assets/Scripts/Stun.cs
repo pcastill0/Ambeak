@@ -6,17 +6,27 @@ using UnityEngine;
 public class Stun : MonoBehaviour
 {
     public GameObject owner;
-    private Player player;
-
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && collision.gameObject != owner)
+        Player player = collision.GetComponent<Player>();
+        IAEnemigo iAEnemigo = collision.GetComponent<IAEnemigo>();
+
+        if (player != null)
         {
-            player = collision.GetComponent<Player>();
-            player.isPlayerStunned = true;
-            //player.stunEffect.SetActive(true);
+            if (collision.gameObject.CompareTag("Player") && collision.gameObject != owner)
+            {
+                player.isPlayerStunned = true;
+                player.stunEffect.SetActive(true);
+            }
+        }
+        else
+        {
+            if (collision.gameObject.CompareTag("Player") && collision.gameObject != owner)
+            {
+                iAEnemigo.isPlayerStunned = true;
+                iAEnemigo.stunEffect.SetActive(true);
+            }
         }
     }
    

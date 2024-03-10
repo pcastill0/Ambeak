@@ -21,24 +21,19 @@ public class cuenta_atras : MonoBehaviour
 
     public IEnumerator StartCountdown()
     {
-        
-
         yield return new WaitForSecondsRealtime(1f);
         tres.SetActive(true);
         yield return new WaitForSecondsRealtime(1f);
         tres.SetActive(false);
 
-        yield return new WaitForSecondsRealtime(1f);
         dos.SetActive(true);
         yield return new WaitForSecondsRealtime(1f);
         dos.SetActive(false);
 
-        yield return new WaitForSecondsRealtime(1f);
         uno.SetActive(true);
         yield return new WaitForSecondsRealtime(1f);
         uno.SetActive(false);
 
-        yield return new WaitForSecondsRealtime(1f);
         start.SetActive(true);
         yield return new WaitForSecondsRealtime(1f);
         start.SetActive(false);

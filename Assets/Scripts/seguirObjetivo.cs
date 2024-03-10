@@ -20,6 +20,11 @@ public class IAEnemigo : MonoBehaviour
     public GameObject trap3;
     Color playerCol;
 
+    public bool isPlayerStunned = false;
+    float stunnedCooldown = 3;
+    float stunnedCounter = 0;
+    public GameObject stunEffect;
+
     int randomTarget;
     float holeCDR = 3;
     float counter;
@@ -86,20 +91,34 @@ public class IAEnemigo : MonoBehaviour
                 break;
         }
 
+        if (isPlayerStunned)
+        {
+            navMeshAgent.ResetPath();
+            stunnedCounter += Time.deltaTime;
+        }
+
+        if (isPlayerStunned && stunnedCounter > stunnedCooldown)
+        {
+            isPlayerStunned = false;
+            stunnedCounter = 0;
+            stunEffect.SetActive(false);
+        }
+
         cooldownTrap1 -= Time.deltaTime;
         cooldownTrap2 -= Time.deltaTime;
         cooldownTrap3 -= Time.deltaTime;
 
          num = Random.Range(0, 3);
 
-        if (num == 0 && cooldownTrap1 <= 0)
+        if (num == 0 && cooldownTrap1 <= 0 && !isPlayerStunned)
         {
             //TRAMPA MINA
             GameObject mina = Instantiate(trap1, transform.position, transform.rotation);
             mina.GetComponent<Trampa>().owner = gameObject;
             cooldownTrap1 = 5;
         }
-        if(num == 1 && cooldownTrap2 <= 0)
+
+        if(num == 1 && cooldownTrap2 <= 0 && !isPlayerStunned)
         {
             //TRAMPA EMPUJE
             GameObject empuje = Instantiate(trap3, transform.position, transform.rotation);
@@ -108,12 +127,12 @@ public class IAEnemigo : MonoBehaviour
         }
 
             //CDR EMPUJE
-        if (gameObject.GetComponent<BoxCollider2D>().enabled == false)
+        if (gameObject.GetComponent<BoxCollider2D>().enabled == false && !isPlayerStunned)
         {
             holeCDR -= Time.deltaTime;
         }
 
-        if (num == 2 && cooldownTrap3 <= 0)
+        if (num == 2 && cooldownTrap3 <= 0 && !isPlayerStunned)
         {
             //TRAMPA GUHERO
             GameObject trap = Instantiate(trap2, transform.position, transform.rotation);
@@ -126,6 +145,7 @@ public class IAEnemigo : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, .5f);
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
+
         if (holeCDR <= 0)
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = true;

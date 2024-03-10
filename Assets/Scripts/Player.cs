@@ -22,14 +22,14 @@ public class Player : MonoBehaviour
     public float cooldownTrap2 = 5f;
     public float cooldownTrap3 = 5f;
 
-    float countertrap1 = 0;
-    float countertrap2 = 0;
-    float countertrap3 = 0;
+    float countertrap1 = 4;
+    float countertrap2 = 4;
+    float countertrap3 = 4;
 
     float holeCooldown = 3;
     bool bajoTierra = false;
 
-    float stunCooldown = 1;
+    float stunCooldown = 5;
     float stunCounter= 0;
 
     float stunnedCooldown = 3;
@@ -68,6 +68,7 @@ public class Player : MonoBehaviour
         {
             isPlayerStunned = false;
             stunnedCounter = 0;
+            stunEffect.SetActive(false);
         }
 
         if (!isPlayerStunned)
@@ -167,7 +168,7 @@ public class Player : MonoBehaviour
     public void trap1Pressed(bool pressed)
     {
         Debug.Log("hola");
-        if (pressed && countertrap1 > cooldownTrap1 && !bajoTierra)
+        if (pressed && countertrap1 > cooldownTrap1 && !bajoTierra && !isPlayerStunned)
         {
             GameObject trapp = Instantiate(trap1, transform.position, transform.rotation);
             trapp.GetComponent<Trampa>().owner = gameObject;
@@ -179,7 +180,7 @@ public class Player : MonoBehaviour
     {
         Debug.Log("hola2");
 
-        if (pressed && countertrap2 > 5 && !bajoTierra)
+        if (pressed && countertrap2 > 5 && !bajoTierra && !isPlayerStunned)
         {
             holeCooldown = 3;
             countertrap2 = 0;
@@ -196,7 +197,7 @@ public class Player : MonoBehaviour
     public void trap3Pressed(bool pressed)
     {
         Debug.Log("hola4");
-        if (pressed && countertrap3 > cooldownTrap3 && !bajoTierra)
+        if (pressed && countertrap3 > cooldownTrap3 && !bajoTierra && !isPlayerStunned)
         {
             GameObject empuje = Instantiate(empujeTrap, transform.position, transform.rotation);
             empuje.GetComponent<Mina>().owner = gameObject;
@@ -207,7 +208,7 @@ public class Player : MonoBehaviour
     public void stunPressed(bool pressed)
     {
         Debug.Log("hola3");
-        if (pressed && stunCounter > stunCooldown && !bajoTierra)
+        if (pressed && stunCounter > stunCooldown && !bajoTierra && !isPlayerStunned)
         {
             stunCounter = 0;
             if (movementInput.magnitude > 0.01f)

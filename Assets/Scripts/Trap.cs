@@ -25,7 +25,7 @@ public class Trampa : MonoBehaviour
         {
             if (collision.gameObject != owner)
             {
-                collision.GetComponent<Hearts>().modifyHealth(-1);
+                collision.GetComponent<Hearts>().modifyHealth(-2);
            
                 Animator a = Instantiate(humo, transform.position, Quaternion.identity);
                 CameraShake.Shake(0.5f, 1f);
