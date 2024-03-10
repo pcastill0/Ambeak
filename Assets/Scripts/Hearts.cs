@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Hearts : MonoBehaviour
 {
-    public int health = 3;
-    public int numOfHearts = 3;
+    public int health = 5;
+    public int numOfHearts = 5;
    
 
     public GameObject player;

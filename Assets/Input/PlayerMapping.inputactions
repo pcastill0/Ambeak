@@ -51,9 +51,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pause",
+                    "name": "Trap4",
                     "type": "Button",
-                    "id": "9d45b8e1-3dfe-4441-a27d-dd15db89e802",
+                    "id": "1052b9a7-3286-49c3-9c14-ef6f726ccd42",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -217,23 +217,23 @@
                 },
                 {
                     "name": "",
-                    "id": "5cd152d0-6cd0-4a65-bb54-ff0aaa341cdf",
-                    "path": "<Gamepad>/start",
+                    "id": "49ce807a-97f5-4d98-896f-728c1bec5576",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pause",
+                    "action": "Trap4",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "33609f3a-fdc2-4f64-be79-67c62c7a4d58",
-                    "path": "<Keyboard>/escape",
+                    "id": "fe36ebdf-6b6f-4764-8626-522fe8151321",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pause",
+                    "action": "Trap4",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -283,6 +283,15 @@
                     "name": "Stun",
                     "type": "Button",
                     "id": "98c64579-dda1-464a-ae03-30652de20210",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Trap4",
+                    "type": "Button",
+                    "id": "fb2fa636-b7cf-4db6-8af5-d873caff27fa",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -441,6 +450,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Trap3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "71a4d87a-2a54-4b40-af7d-1a1faf041955",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Trap4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1937dcac-786c-4377-a7f7-e874b0390b6f",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Trap4",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

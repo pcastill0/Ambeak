@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public GameObject stun1;
     public GameObject empujeTrap;
     public GameObject stunEffect;
+    public GameObject clonBomba;
 
     public bool isPlayerStunned = false;
     public bool isDead;
@@ -22,10 +23,12 @@ public class Player : MonoBehaviour
     public float cooldownTrap1 = 5f;
     public float cooldownTrap2 = 5f;
     public float cooldownTrap3 = 5f;
+    public float cooldownTrap4 = 0f;
 
     float countertrap1 = 4;
     float countertrap2 = 4;
     float countertrap3 = 4;
+    float countertrap4 = 4;
 
     float holeCooldown = 3;
     bool bajoTierra = false;
@@ -84,6 +87,7 @@ public class Player : MonoBehaviour
         countertrap1 += Time.deltaTime;
         countertrap2 += Time.deltaTime;
         countertrap3 += Time.deltaTime;
+        countertrap4 += Time.deltaTime;
         stunCounter += Time.deltaTime;
 
 
@@ -171,7 +175,6 @@ public class Player : MonoBehaviour
 
     public void trap1Pressed(bool pressed)
     {
-        Debug.Log("hola");
         if (pressed && countertrap1 > cooldownTrap1 && !bajoTierra && !isPlayerStunned)
         {
             GameObject trapp = Instantiate(trap1, transform.position, transform.rotation);
@@ -182,8 +185,6 @@ public class Player : MonoBehaviour
 
     public void trap2Pressed(bool pressed)
     {
-        Debug.Log("hola2");
-
         if (pressed && countertrap2 > 5 && !bajoTierra && !isPlayerStunned)
         {
             holeCooldown = 3;
@@ -200,7 +201,6 @@ public class Player : MonoBehaviour
 
     public void trap3Pressed(bool pressed)
     {
-        Debug.Log("hola4");
         if (pressed && countertrap3 > cooldownTrap3 && !bajoTierra && !isPlayerStunned)
         {
             GameObject empuje = Instantiate(empujeTrap, transform.position, transform.rotation);
@@ -211,7 +211,6 @@ public class Player : MonoBehaviour
 
     public void stunPressed(bool pressed)
     {
-        Debug.Log("hola3");
         if (pressed && stunCounter > stunCooldown && !bajoTierra && !isPlayerStunned)
         {
             stunCounter = 0;
@@ -250,7 +249,7 @@ public class Player : MonoBehaviour
             {
                 if (cuentaAtrasScript.gameObject.activeSelf)
                 {
-                    // Si la cuenta atrás está activa, pausar el juego
+                    // Si la cuenta atrï¿½s estï¿½ activa, pausar el juego
                     Time.timeScale = 0f;
                     SceneManager.LoadScene("Settings");
                 }
@@ -262,4 +261,18 @@ public class Player : MonoBehaviour
             }
         }
     }
+    
+    public void trap4Pressed(bool pressed)
+    {
+
+        if (pressed && countertrap4 > cooldownTrap4 && !bajoTierra)
+        {
+            GameObject clon = Instantiate(clonBomba, transform.position, transform.rotation);
+            clon.GetComponent<ClonBomba>().owner = gameObject;
+            countertrap4 = 0;
+        }
+    }
+
+
+
 }

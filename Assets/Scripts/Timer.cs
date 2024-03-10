@@ -42,7 +42,7 @@ public class Timer : MonoBehaviour
 
         foreach (GameObject jugador in jugadores)
         {
-            Debug.Log("recorro");
+            
             if (jugador != null)
             {
                 playersLeft++;
