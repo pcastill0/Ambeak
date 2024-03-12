@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: ccc2acc9be9ffb5418912b0973666497
   - enabled: 0
-    path: Assets/Scenes/2PlayersToni.unity
+    path: Assets/Scenes/useless/2PlayersToni.unity
     guid: 9d97d198f0b408045886a892b0572450
   - enabled: 0
     path: Assets/Scenes/Toni2.unity

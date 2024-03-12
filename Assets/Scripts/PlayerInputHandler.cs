@@ -83,7 +83,7 @@ public class PlayerInputHandler : MonoBehaviour
             player.onPause(context.action.triggered);
         }
     }
-    
+    /*
     public void OnTrap4(CallbackContext context)
     {
         if(player != null)
@@ -91,5 +91,6 @@ public class PlayerInputHandler : MonoBehaviour
             player.trap4Pressed(context.action.triggered);
         }
     }
+    */
 
 }

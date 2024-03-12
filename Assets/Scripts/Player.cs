@@ -279,6 +279,7 @@ public class Player : MonoBehaviour
         }
     }
     
+    /*
     public void trap4Pressed(bool pressed)
     {
 
@@ -289,7 +290,7 @@ public class Player : MonoBehaviour
             countertrap4 = 0;
         }
     }
-
+    */
 
 
 }

@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     private AudioSource audioSource;
 
-    public GameObject pausaMenuUI;
+    //public GameObject pausaMenuUI;
 
     private cuenta_atras cuentaAtrasScript;
 
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         Invoke("ReanudarJuego", 8f);
-        pausaMenuUI.SetActive(false);
+       // pausaMenuUI.SetActive(false);
        
     }
     void ReanudarJuego()
@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     public void reanudarJuego()
     {
         Time.timeScale = 1f;
-        pausaMenuUI.SetActive(false);
+        //pausaMenuUI.SetActive(false);
     }
 
     public void reiniciarJuego()
@@ -70,12 +70,13 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         // PAUSAR JUEGO
+        /*
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (Time.timeScale == 0f)
             {
                 Time.timeScale = 1f; // Reanudar el juego
-                pausaMenuUI.SetActive(false);
+                //pausaMenuUI.SetActive(false);
             }
             else
             {
@@ -87,10 +88,10 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     Time.timeScale = 1f; // Si no, pausar el juego normalmente
-                    pausaMenuUI.SetActive(true);
+                   // pausaMenuUI.SetActive(true);
                 }
             }
-        }
+        }*/
 
         // Generate powerUps
         counter += Time.deltaTime;
